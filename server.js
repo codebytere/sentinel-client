@@ -9,7 +9,7 @@ fast.get('/', async (req, res) => {
   res.send('Client Endpoint Up')
 })
 
-fast.post('/electron-api-demos', async req => {
+fast.post('/fiddle', async req => {
   const {
     platformInstallData,
     reportCallback,
