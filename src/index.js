@@ -29,6 +29,7 @@ async function run() {
     const clientPayload = github.context.payload.client_payload
 
     const { platformInstallData, reportCallback, sessionToken, name } = clientPayload
+    core.debug(inspect(clientPayload))
 
     const reportPath = path.resolve('report', 'report.json')
     const rawData = await fs.readFile(reportPath, 'utf8')
@@ -37,26 +38,30 @@ async function run() {
     const sysData = platformInstallData.platform.split('-')
     const lastTest = report.testResults[report.testResults.length - 1]
 
+    const formatDate = (date) => {
+      return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '')
+    }
+
     const testData = {
       name: `${name}-${platformInstallData.platform}-${Date.now()}`,
       status: report.status ? 'Passed' : 'Failed',
       os: sysData[0],
       arch: sysData[1],
       sourceLink: 'https://github.com/electron/fiddle',
-      timeStart: new Date(report.timeStart),
-      timeStop: new Date(lastTest.endTime),
+      timeStart: formatDate(report.startTime),
+      timeStop: formatDate(lastTest.endTime),
       totalPassed: report.numPassedTests,
       totalSkipped: report.numTodoTests,
       totalWarnings: 0,
       totalFailed: report.numFailedTests,
-      workspaceGzipLink: 'N/A',
-      logfileLink: 'N/A',
-      ciLink: 'N/A',
+      workspaceGzipLink: 'https://github.com/electron/fiddle',
+      logfileLink: 'https://github.com/electron/fiddle',
+      ciLink: 'https://github.com/electron/fiddle',
       testAgent: testAgent()
     }
 
-    core.info(`Sending Test Run Data to: ${reportCallback}`)
-    await fetch(reportCallback, {
+    core.info(`Sending Test Run Data to Sentinel for ${platformInstallData.platform}`)
+    const result = await fetch(reportCallback, {
       method: 'POST',
       headers: {
         'sessionId': sessionToken,
@@ -65,10 +70,17 @@ async function run() {
       body: JSON.stringify(testData)
     })
 
-    core.info('Test Run Data sent successfully')
+    const text = await result.text()
+    core.debug(inspect(text))
+
+    if (result.status === 200) {
+      core.info('Test Run Data sent successfully')
+    } else {
+      core.setFailed('Failed to send Test Run Data to Sentinel: ', inspect(text))
+    }
   } catch (error) {
     core.debug(inspect(error))
-    core.setFailed(error.message)
+    core.setFailed('Failed to send Test Run Data to Sentinel: ', error.message)
   }
 }
 
