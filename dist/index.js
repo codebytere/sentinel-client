@@ -4269,9 +4269,28 @@ exports.RequestError = RequestError;
 const core = __webpack_require__(827)
 const github = __webpack_require__(805)
 const fetch = __webpack_require__(599)
+
 const { inspect } = __webpack_require__(669)
 const { promises: fs } = __webpack_require__(747)
 const path = __webpack_require__(622)
+const os = __webpack_require__(87)
+
+function testAgent() {
+  return {
+    arch: os.arch(),
+    platform: os.platform(),
+    cpus: {
+      cores: os.cpus().length,
+      model: os.cpus()[0].model,
+      speed: os.cpus()[0].speed
+    },
+    freeMem: os.freemem(),
+    release: os.release(),
+    totalMem: os.totalmem(),
+    type: os.type(),
+    endianness: os.endianness()
+  }
+}
 
 async function run() {
   try {

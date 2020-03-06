@@ -1,9 +1,28 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 const fetch = require('node-fetch')
+
 const { inspect } = require('util')
 const { promises: fs } = require('fs')
 const path = require('path')
+const os = require('os')
+
+function testAgent() {
+  return {
+    arch: os.arch(),
+    platform: os.platform(),
+    cpus: {
+      cores: os.cpus().length,
+      model: os.cpus()[0].model,
+      speed: os.cpus()[0].speed
+    },
+    freeMem: os.freemem(),
+    release: os.release(),
+    totalMem: os.totalmem(),
+    type: os.type(),
+    endianness: os.endianness()
+  }
+}
 
 async function run() {
   try {
