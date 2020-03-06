@@ -41,6 +41,7 @@ fast.post('/fiddle', async req => {
       client_payload: {
         sessionToken,
         reportCallback,
+        versionQualifier,
         platformInstallData,
         name: process.env.GITHUB_REPO
       },
