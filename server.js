@@ -26,7 +26,7 @@ fast.post('/fiddle', async req => {
 
   const sessionToken = shortid.generate()
 
-  if (!semver.gt(versionQualifier, minimumVersion)) {
+  if (!semver.gte(versionQualifier, minimumVersion)) {
     return { reportsExpected: 0, sessionToken }
   }
 
