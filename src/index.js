@@ -44,7 +44,7 @@ async function run() {
 
     const testData = {
       name: `${name}-${platformInstallData.platform}-${Date.now()}`,
-      status: report.status ? 'Passed' : 'Failed',
+      status: report.success ? 'Passed' : 'Failed',
       os: sysData[0],
       arch: sysData[1],
       sourceLink: 'https://github.com/electron/fiddle',
@@ -64,7 +64,7 @@ async function run() {
     const result = await fetch(reportCallback, {
       method: 'POST',
       headers: {
-        'sessionId': sessionToken,
+        'Authorization': sessionToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(testData)
