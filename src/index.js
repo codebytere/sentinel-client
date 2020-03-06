@@ -1,23 +1,14 @@
 const core = require('@actions/core')
-const artifact = require('@actions/artifact')
+const github = require('@actions/github')
 const fetch = require('node-fetch')
+const { inspect } = require('util')
 
 async function run() {
   try {
-    const inputs = {
-      token: core.getInput('token'),
-      name: core.getInput('name'),
-      repository: core.getInput('repository'),
-      eventType: core.getInput('event-type'),
-      clientPayload: core.getInput('client-payload')
-    }
+    const clientPayload = github.context.payload
 
-    const repository = inputs.repository ? inputs.repository : process.env.GITHUB_REPOSITORY;
-    core.debug(`repository: ${repository}`)
-
-    const clientPayload = inputs.clientPayload
-    core.debug(`clientPayload: ${inputs.clientPayload}`)
-    const { platformData, reportCallback, sessionToken } = clientPayload
+    core.debug(`clientPayload: ${inspect(clientPayload)}`)
+    const { platformData, reportCallback, sessionToken, name } = clientPayload
 
     const rawData = await fs.readFile('report.json', 'utf8')
     const report = JSON.parse(rawData)
