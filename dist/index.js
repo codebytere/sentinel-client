@@ -4270,25 +4270,28 @@ const core = __webpack_require__(827)
 const github = __webpack_require__(805)
 const fetch = __webpack_require__(599)
 const { inspect } = __webpack_require__(669)
+const { promises: fs } = __webpack_require__(747)
+const path = __webpack_require__(622)
 
 async function run() {
   try {
-    const clientPayload = github.context.payload
+    const clientPayload = github.context.payload.client_payload
 
     core.debug(`clientPayload: ${inspect(clientPayload)}`)
-    const { platformData, reportCallback, sessionToken, name } = clientPayload
+    const { platformInstallData, reportCallback, sessionToken, name } = clientPayload
 
-    const rawData = await fs.readFile('report.json', 'utf8')
+    const reportPath = path.resolve('report', 'report.json')
+    const rawData = await fs.readFile(reportPath, 'utf8')
     const report = JSON.parse(rawData)
     core.debug(`report: ${inspect(report)}`);
 
-    const sysData = platformData.platform.split('-')
+    const sysData = platformInstallData.platform.split('-')
     const date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
     const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max))
     const statuses = ['Passed', 'Failed', 'Skipped']
 
     const testData = {
-      name: `${platformData.platform}-${Date.now()}`,
+      name: `${platformInstallData.platform}-${Date.now()}`,
       status: statuses[Math.floor(Math.random() * 3)],
       os: sysData[0],
       arch: sysData[1],
