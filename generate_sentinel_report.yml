@@ -12,6 +12,9 @@ jobs:
       - name: Check Out Repository
         uses: actions/checkout@v2
 
+      - name: Update Electron Version
+        uses: codebytere/update-electron-version@v1
+
       - name: Install Dependencies
         run: npm ci
 
