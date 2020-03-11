@@ -29,7 +29,6 @@ async function run() {
     const clientPayload = github.context.payload.client_payload
 
     const { platformInstallData, reportCallback, sessionToken, name } = clientPayload
-    core.debug(inspect(clientPayload))
 
     const reportPath = path.resolve('report', 'report.json')
     const rawData = await fs.readFile(reportPath, 'utf8')

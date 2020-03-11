@@ -5,6 +5,22 @@ const { request } = require("@octokit/request");
 
 const fast = fastify({ logger: true })
 
+function getHostOS(platform) {
+  const ACTIONS_OPTIONS = {
+    windows: 'windows-latest',
+    macos: 'macos-latest',
+    linux: 'ubuntu-latest'
+  }
+
+  if (['win32-ia32', 'win32-x64'].includes(platform)) {
+    return ACTIONS_OPTIONS.windows
+  } else if (['darwin-x64', 'mas-x64'].includes(platform)) {
+    return ACTIONS_OPTIONS.macos
+  } else if (['linux-ia32', 'linux-x64'].includes(platform)) {
+    return ACTIONS_OPTIONS.linux
+  }
+}
+
 fast.get('/', async (req, res) => {
   res.send('Client Endpoint Up')
 })
@@ -39,6 +55,7 @@ fast.post('/fiddle', async req => {
       headers: { authorization: `token ${token}` },
       event_type: 'generate-sentinel-report',
       client_payload: {
+        hostOS: getHostOS(platformInstallData.platform),
         sessionToken,
         reportCallback,
         versionQualifier,

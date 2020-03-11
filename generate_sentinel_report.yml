@@ -5,25 +5,10 @@ on:
     types: generate-sentinel-report
 
 jobs:
-  set-runner-os:
-    name: Set Runner OS
-    runs-on: ubuntu-latest
-    outputs:
-      platform:
-        description: 'The OS to run the tests in'
-        required: true
-    steps:
-      - name: Set Test Platform
-        uses: codebytere/set-test-platform@v1
 
   build-and-test:
     name: Build Project
-    needs: set-runner-os
-    runs-on: ${{ inputs.platform }}
-    inputs:
-      platform:
-        description: 'The OS to run the tests in'
-        required: true
+    runs-on: ${{ github.event.client_payload.hostOS }}
     steps:
       - name: Check Out Repository
         uses: actions/checkout@v2
@@ -35,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Run Test Suite
-        run: npm run generate-test-report
+        run: npm run test:report
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v1
@@ -55,4 +40,3 @@ jobs:
 
       - name: Send Data to Sentinel
         uses: codebytere/sentinel-client@v1
-
