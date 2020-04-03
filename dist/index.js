@@ -4266,14 +4266,14 @@ exports.RequestError = RequestError;
 /***/ 290:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const core = __webpack_require__(827)
-const github = __webpack_require__(805)
-const fetch = __webpack_require__(599)
+const core = __webpack_require__(827);
+const github = __webpack_require__(805);
+const fetch = __webpack_require__(599);
 
-const { inspect } = __webpack_require__(669)
-const { promises: fs } = __webpack_require__(747)
-const path = __webpack_require__(622)
-const os = __webpack_require__(87)
+const { inspect } = __webpack_require__(669);
+const { promises: fs } = __webpack_require__(747);
+const path = __webpack_require__(622);
+const os = __webpack_require__(87);
 
 function testAgent() {
   return {
@@ -4282,33 +4282,32 @@ function testAgent() {
     cpus: {
       cores: os.cpus().length,
       model: os.cpus()[0].model,
-      speed: os.cpus()[0].speed
+      speed: os.cpus()[0].speed,
     },
     freeMem: os.freemem(),
     release: os.release(),
     totalMem: os.totalmem(),
     type: os.type(),
-    endianness: os.endianness()
-  }
+    endianness: os.endianness(),
+  };
 }
 
 async function run() {
   try {
-    const clientPayload = github.context.payload.client_payload
+    const clientPayload = github.context.payload.client_payload;
 
-    const { platformInstallData, reportCallback, sessionToken, name } = clientPayload
-    core.debug(inspect(clientPayload))
+    const { platformInstallData, reportCallback, sessionToken, name } = clientPayload;
 
-    const reportPath = path.resolve('report', 'report.json')
-    const rawData = await fs.readFile(reportPath, 'utf8')
-    const report = JSON.parse(rawData)
+    const reportPath = path.resolve('report', 'report.json');
+    const rawData = await fs.readFile(reportPath, 'utf8');
+    const report = JSON.parse(rawData);
 
-    const sysData = platformInstallData.platform.split('-')
-    const lastTest = report.testResults[report.testResults.length - 1]
+    const sysData = platformInstallData.platform.split('-');
+    const lastTest = report.testResults[report.testResults.length - 1];
 
     const formatDate = (date) => {
-      return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '')
-    }
+      return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    };
 
     const testData = {
       name: `${name}-${platformInstallData.platform}-${Date.now()}`,
@@ -4325,34 +4324,35 @@ async function run() {
       workspaceGzipLink: 'https://github.com/electron/fiddle',
       logfileLink: 'https://github.com/electron/fiddle',
       ciLink: 'https://github.com/electron/fiddle',
-      testAgent: testAgent()
-    }
+      testAgent: testAgent(),
+    };
 
-    core.info(`Sending Test Run Data to Sentinel for ${platformInstallData.platform}`)
+    core.info(`Sending Test Run Data to Sentinel for ${platformInstallData.platform}`);
     const result = await fetch(reportCallback, {
       method: 'POST',
       headers: {
-        'Authorization': sessionToken,
-        'Content-Type': 'application/json'
+        Authorization: sessionToken,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(testData)
-    })
+      body: JSON.stringify(testData),
+    });
 
-    const text = await result.text()
-    core.debug(inspect(text))
+    const text = await result.text();
+    core.debug(inspect(text));
 
     if (result.status === 200) {
-      core.info('Test Run Data sent successfully')
+      core.info('Test Run Data sent successfully');
     } else {
-      core.setFailed('Failed to send Test Run Data to Sentinel: ', inspect(text))
+      core.setFailed('Failed to send Test Run Data to Sentinel: ', inspect(text));
     }
   } catch (error) {
-    core.debug(inspect(error))
-    core.setFailed('Failed to send Test Run Data to Sentinel: ', error.message)
+    core.debug(inspect(error));
+    core.setFailed('Failed to send Test Run Data to Sentinel: ', error.message);
   }
 }
 
-run()
+run();
+
 
 /***/ }),
 

@@ -4,7 +4,11 @@
   "description": "Client library for communicating with then Sentinel service.",
   "main": "index.js",
   "scripts": {
-    "create-dist": "ncc build src/index.js"
+    "create-dist": "ncc build src/index.js",
+    "lint:yaml": "yamllint ./.github/workflows/lint.yml",
+    "lint:js": "prettier --check '**/*.js'",
+    "lint": "npm run lint:js && npm run lint:yaml",
+    "format": "prettier --write '**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,8 @@
     "shortid": "^2.2.15"
   },
   "devDependencies": {
-    "ncc": "^0.3.6"
+    "ncc": "^0.3.6",
+    "prettier": "^2.0.2",
+    "yaml-lint": "^1.2.4"
   }
 }
