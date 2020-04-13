@@ -5,6 +5,15 @@ const { request } = require('@octokit/request');
 
 const fast = fastify({ logger: true });
 
+const {
+  GITHUB_OWNER,
+  GITHUB_REPO,
+  GITHUB_TOKEN,
+  MINIMUM_ELECTRON_VERSION,
+  PORT = 3000,
+  HOST = '0.0.0.0',
+} = process.env;
+
 function getHostOS(platform) {
   const ACTIONS_OPTIONS = {
     windows: 'windows-latest',
@@ -21,15 +30,11 @@ function getHostOS(platform) {
   }
 }
 
-fast.get('/', async (req, res) => {
-  res.send('Client Endpoint Up');
-});
-
-fast.post('/fiddle', async (req) => {
+function handleDispatch(req) {
   const { platformInstallData, reportCallback, versionQualifier } = req.body;
 
-  let minimumVersion = process.env.MINIMUM_ELECTRON_VERSION;
-  if (!minimumVersion || !semver.valid(minimumVersion)) {
+  let minimumVersion = MINIMUM_ELECTRON_VERSION;
+  if (!MINIMUM_ELECTRON_VERSION || !semver.valid(minimumVersion)) {
     fast.log.error('MINIMUM_ELECTRON_VERSION env var invalid or not set');
     return;
   } else {
@@ -42,12 +47,8 @@ fast.post('/fiddle', async (req) => {
     return { reportsExpected: 0, sessionToken };
   }
 
-  const owner = process.env.GITHUB_OWNER;
-  const repo = process.env.GITHUB_REPO;
-  const token = process.env.GITHUB_TOKEN;
-
-  request(`POST /repos/${owner}/${repo}/dispatches`, {
-    headers: { authorization: `token ${token}` },
+  request(`POST /repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`, {
+    headers: { authorization: `token ${GITHUB_TOKEN}` },
     event_type: 'generate-sentinel-report',
     client_payload: {
       hostOS: getHostOS(platformInstallData.platform),
@@ -55,16 +56,22 @@ fast.post('/fiddle', async (req) => {
       reportCallback,
       versionQualifier,
       platformInstallData,
-      name: process.env.GITHUB_REPO,
+      name: GITHUB_REPO,
     },
   });
 
   return { reportsExpected: 1, sessionToken };
+}
+
+fast.get('/', async (req, res) => {
+  res.send('Client Endpoint Up');
 });
 
-const start = async () => {
-  const { PORT = 3000, HOST = '0.0.0.0' } = process.env;
+fast.post('/vscode', async (req) => handleDispatch(req));
 
+fast.post('/fiddle', async (req) => handleDispatch(req));
+
+const start = async () => {
   try {
     await fast.listen({ port: PORT, host: HOST });
     fast.log.info(`server listening on ${fast.server.address().port}`);
