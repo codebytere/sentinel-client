@@ -43,19 +43,18 @@ async function run() {
 
     const testData = {
       name: `${name}-${platformInstallData.platform}-${Date.now()}`,
-      status: report.success ? 'Passed' : 'Failed',
+      status: report.numPassedTests === report.numTotalTests ? 'Passed' : 'Failed',
       os: sysData[0],
       arch: sysData[1],
-      sourceLink: 'https://github.com/electron/fiddle',
+      sourceLink: 'https://example.com',
       timeStart: formatDate(report.startTime),
       timeStop: formatDate(lastTest.endTime),
       totalPassed: report.numPassedTests,
       totalSkipped: report.numTodoTests,
       totalWarnings: 0,
       totalFailed: report.numFailedTests,
-      workspaceGzipLink: 'https://github.com/electron/fiddle',
-      logfileLink: 'https://github.com/electron/fiddle',
-      ciLink: 'https://github.com/electron/fiddle',
+      logfileLink: 'https://example.com',
+      ciLink: 'https://example.com',
       testAgent: testAgent(),
     };
 
