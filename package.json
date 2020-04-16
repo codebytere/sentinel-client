@@ -30,7 +30,7 @@
     "shortid": "^2.2.15"
   },
   "devDependencies": {
-    "ncc": "^0.3.6",
+    "@zeit/ncc": "^0.22.1",
     "prettier": "^2.0.2",
     "yaml-lint": "^1.2.4"
   }
