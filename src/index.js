@@ -5,28 +5,11 @@ const fetch = require('node-fetch');
 const { inspect } = require('util');
 const { promises: fs } = require('fs');
 const path = require('path');
-const os = require('os');
 
-const { fetchLogFile } = require('./logfile-util');
+const { fetchLogFile } = require('./utils/logfile-util');
+const { testAgent } = require('./utils/testagent-util');
 
 const { GITHUB_TOKEN } = process.env;
-
-function testAgent() {
-  return {
-    arch: os.arch(),
-    platform: os.platform(),
-    cpus: {
-      cores: os.cpus().length,
-      model: os.cpus()[0].model,
-      speed: os.cpus()[0].speed,
-    },
-    freeMem: os.freemem(),
-    release: os.release(),
-    totalMem: os.totalmem(),
-    type: os.type(),
-    endianness: os.endianness(),
-  };
-}
 
 async function run() {
   try {
@@ -50,6 +33,7 @@ async function run() {
     };
 
     const logfileLink = await fetchLogFile(octokit, runName);
+    const ciLink = `https://github.com/${github.context.repository}/runs/${github.context.run_id}`;
 
     const testData = {
       name: runName,
@@ -64,7 +48,7 @@ async function run() {
       totalWarnings: 0,
       totalFailed: report.numFailedTests,
       logfileLink,
-      ciLink: 'https://example.com',
+      ciLink,
       testAgent: testAgent(),
     };
 
