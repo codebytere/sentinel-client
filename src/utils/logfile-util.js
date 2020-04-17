@@ -1,8 +1,15 @@
 const aws = require('aws-sdk');
 const github = require('@actions/github');
+const fetch = require('node-fetch');
 
 async function fetchLogFile(octokit, fileName) {
-  const { GITHUB_TOKEN, S3_BUCKET_NAME, S3_BUCKET_ACCESS_ID, S3_BUCKET_ACCESS_KEY } = process.env;
+  const {
+    GITHUB_RUN_ID,
+    GITHUB_TOKEN,
+    S3_BUCKET_NAME,
+    S3_BUCKET_ACCESS_ID,
+    S3_BUCKET_ACCESS_KEY,
+  } = process.env;
 
   // Fetch commit sha corresponding to nightly tag.
   const { owner, repo } = github.context.repo;
@@ -20,7 +27,7 @@ async function fetchLogFile(octokit, fileName) {
   } = await octokit.actions.listJobsForWorkflowRun({
     owner,
     repo,
-    run_id: github.context.run_id,
+    run_id: GITHUB_RUN_ID,
   });
 
   // Fetch URL for logs corresponding to CI job.

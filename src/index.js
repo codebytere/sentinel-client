@@ -15,7 +15,12 @@ async function run() {
   try {
     const clientPayload = github.context.payload.client_payload;
 
-    const { platformInstallData, reportCallback, sessionToken, name } = clientPayload;
+    const {
+      platformInstallData,
+      reportCallback,
+      sessionToken,
+      name,
+    } = clientPayload;
 
     // Authenticate Octokit.
     const octokit = new github.GitHub(GITHUB_TOKEN);
@@ -37,7 +42,8 @@ async function run() {
 
     const testData = {
       name: runName,
-      status: report.numPassedTests === report.numTotalTests ? 'Passed' : 'Failed',
+      status:
+        report.numPassedTests === report.numTotalTests ? 'Passed' : 'Failed',
       os: sysData[0],
       arch: sysData[1],
       sourceLink: 'https://example.com',
@@ -52,7 +58,9 @@ async function run() {
       testAgent: testAgent(),
     };
 
-    core.info(`Sending Test Run Data to Sentinel for ${platformInstallData.platform}`);
+    core.info(
+      `Sending Test Run Data to Sentinel for ${platformInstallData.platform}`,
+    );
     const result = await fetch(reportCallback, {
       method: 'POST',
       headers: {
@@ -68,7 +76,10 @@ async function run() {
     if (result.status === 200) {
       core.info('Test Run Data sent successfully');
     } else {
-      core.setFailed('Failed to send Test Run Data to Sentinel: ', inspect(text));
+      core.setFailed(
+        'Failed to send Test Run Data to Sentinel: ',
+        inspect(text),
+      );
     }
   } catch (error) {
     core.debug(inspect(error));
