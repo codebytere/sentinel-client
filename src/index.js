@@ -7,6 +7,10 @@ const { promises: fs } = require('fs');
 const path = require('path');
 const os = require('os');
 
+const { fetchLogFile } = require('./logfile-util');
+
+const { GITHUB_TOKEN } = process.env;
+
 function testAgent() {
   return {
     arch: os.arch(),
@@ -30,19 +34,25 @@ async function run() {
 
     const { platformInstallData, reportCallback, sessionToken, name } = clientPayload;
 
+    // Authenticate Octokit.
+    const octokit = new github.GitHub(GITHUB_TOKEN);
+
     const reportPath = path.resolve('report', 'report.json');
     const rawData = await fs.readFile(reportPath, 'utf8');
     const report = JSON.parse(rawData);
 
     const sysData = platformInstallData.platform.split('-');
     const lastTest = report.testResults[report.testResults.length - 1];
+    const runName = `${name}-${platformInstallData.platform}-${Date.now()}`;
 
     const formatDate = (date) => {
       return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '');
     };
 
+    const logfileLink = await fetchLogFile(octokit, runName);
+
     const testData = {
-      name: `${name}-${platformInstallData.platform}-${Date.now()}`,
+      name: runName,
       status: report.numPassedTests === report.numTotalTests ? 'Passed' : 'Failed',
       os: sysData[0],
       arch: sysData[1],
@@ -53,7 +63,7 @@ async function run() {
       totalSkipped: report.numTodoTests,
       totalWarnings: 0,
       totalFailed: report.numFailedTests,
-      logfileLink: 'https://example.com',
+      logfileLink,
       ciLink: 'https://example.com',
       testAgent: testAgent(),
     };
