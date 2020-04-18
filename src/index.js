@@ -13,14 +13,12 @@ const { GITHUB_TOKEN } = process.env;
 
 async function run() {
   try {
-    const clientPayload = github.context.payload.client_payload;
-
     const {
       platformInstallData,
       reportCallback,
       sessionToken,
       name,
-    } = clientPayload;
+    } = github.context.payload.client_payload;
 
     // Authenticate Octokit.
     const octokit = new github.GitHub(GITHUB_TOKEN);

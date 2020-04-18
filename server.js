@@ -47,9 +47,15 @@ function handleDispatch(req) {
     return { reportsExpected: 0, sessionToken };
   }
 
+  const s3Credentials = {
+    S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
+    S3_BUCKET_ACCESS_ID: process.env.S3_BUCKET_ACCESS_ID,
+    S3_BUCKET_ACCESS_KEY: process.env.S3_BUCKET_ACCESS_KEY,
+  };
+
   request(`POST /repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`, {
     headers: { authorization: `token ${GITHUB_TOKEN}` },
-    event_type: 'generate-sentinel-report',
+    event_type: `generate-sentinel-report-${GITHUB_REPO}`,
     client_payload: {
       hostOS: getHostOS(platformInstallData.platform),
       sessionToken,
@@ -57,6 +63,7 @@ function handleDispatch(req) {
       versionQualifier,
       platformInstallData,
       name: GITHUB_REPO,
+      s3Credentials,
     },
   });
 
