@@ -9,7 +9,7 @@ const path = require('path');
 const { fetchLogFile } = require('./utils/logfile-util');
 const { testAgent } = require('./utils/testagent-util');
 
-const { GITHUB_TOKEN } = process.env;
+const { GITHUB_TOKEN, GITHUB_RUN_ID, GITHUB_REPOSITORY } = process.env;
 
 async function run() {
   try {
@@ -36,7 +36,7 @@ async function run() {
     };
 
     const logfileLink = await fetchLogFile(octokit, runName);
-    const ciLink = `https://github.com/${github.context.repository}/runs/${github.context.run_id}`;
+    const ciLink = `https://github.com/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}`;
 
     const testData = {
       name: runName,

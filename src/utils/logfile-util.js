@@ -14,7 +14,7 @@ async function fetchLogFile(octokit, fileName) {
 
   // Fetch commit sha corresponding to nightly tag.
   const { owner, repo } = github.context.repo;
-  const S3_URL_BASE = `https://s3.amazonaws.com/${S3_BUCKET_NAME}`;
+  const S3_URL_BASE = `http://${S3_BUCKET_NAME}.s3.amazonaws.com`;
 
   // Initialize S3 client.
   const s3 = new aws.S3({
