@@ -6,12 +6,13 @@ const { request } = require('@octokit/request');
 const fast = fastify({ logger: true });
 
 const {
-  GITHUB_OWNER,
-  GITHUB_REPO,
   GITHUB_TOKEN,
   MINIMUM_ELECTRON_VERSION,
   PORT = 3000,
   HOST = '0.0.0.0',
+  S3_BUCKET_NAME,
+  S3_BUCKET_ACCESS_ID,
+  S3_BUCKET_ACCESS_KEY,
 } = process.env;
 
 function getHostOS(platform) {
@@ -30,8 +31,10 @@ function getHostOS(platform) {
   }
 }
 
-function handleDispatch(req) {
+function handleDispatch(req, repoSlug) {
   const { platformInstallData, reportCallback, versionQualifier } = req.body;
+
+  const [GITHUB_OWNER, GITHUB_REPO] = repoSlug.split('/');
 
   let minimumVersion = MINIMUM_ELECTRON_VERSION;
   if (!MINIMUM_ELECTRON_VERSION || !semver.valid(minimumVersion)) {
@@ -47,11 +50,8 @@ function handleDispatch(req) {
     return { reportsExpected: 0, sessionToken };
   }
 
-  const s3Credentials = {
-    S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
-    S3_BUCKET_ACCESS_ID: process.env.S3_BUCKET_ACCESS_ID,
-    S3_BUCKET_ACCESS_KEY: process.env.S3_BUCKET_ACCESS_KEY,
-  };
+  fast.log.info('BUCKET NAME: ', S3_BUCKET_NAME);
+  fast.log.info(`generate-sentinel-report-${GITHUB_REPO}`);
 
   request(`POST /repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`, {
     headers: { authorization: `token ${GITHUB_TOKEN}` },
@@ -63,7 +63,11 @@ function handleDispatch(req) {
       versionQualifier,
       platformInstallData,
       name: GITHUB_REPO,
-      s3Credentials,
+      s3Credentials: {
+        S3_BUCKET_NAME,
+        S3_BUCKET_ACCESS_ID,
+        S3_BUCKET_ACCESS_KEY,
+      },
     },
   });
 
@@ -74,9 +78,9 @@ fast.get('/', async (req, res) => {
   res.send('Client Endpoint Up');
 });
 
-fast.post('/vscode', async (req) => handleDispatch(req));
+fast.post('/vscode', async (req) => handleDispatch(req, 'codebytere/vscode'));
 
-fast.post('/fiddle', async (req) => handleDispatch(req));
+fast.post('/fiddle', async (req) => handleDispatch(req, 'codebytere/fiddle'));
 
 const start = async () => {
   try {

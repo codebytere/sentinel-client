@@ -1,9 +1,6 @@
 const aws = require('aws-sdk');
 const fetch = require('node-fetch');
-const { inspect } = require('util');
-
 const github = require('@actions/github');
-const core = require('@actions/core');
 
 async function fetchLogFile(octokit, fileName) {
   const { GITHUB_RUN_ID, GITHUB_TOKEN } = process.env;
@@ -15,15 +12,12 @@ async function fetchLogFile(octokit, fileName) {
     S3_BUCKET_ACCESS_KEY,
   } = s3Credentials;
 
-  core.debug(inspect(s3Credentials));
-
   // Fetch commit sha corresponding to nightly tag.
   const { owner, repo } = github.context.repo;
   const S3_URL_BASE = `https://s3.amazonaws.com/${S3_BUCKET_NAME}`;
 
   // Initialize S3 client.
   const s3 = new aws.S3({
-    Bucket: S3_BUCKET_NAME,
     accessKeyId: S3_BUCKET_ACCESS_ID,
     secretAccessKey: S3_BUCKET_ACCESS_KEY,
   });
