@@ -9,6 +9,7 @@ jobs:
   build-and-test:
     name: Build Project
     runs-on: ${{ github.event.client_payload.hostOS }}
+    continue-on-error: true
     steps:
       - name: Check Out Repository
         uses: actions/checkout@v2
