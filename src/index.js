@@ -3,7 +3,7 @@ const github = require('@actions/github')
 const fetch = require('node-fetch')
 
 const { inspect } = require('util')
-const { promises: fs } = require('fs')
+const { promises: asyncfs, existsSync } = require('fs')
 const path = require('path')
 
 const { fetchLogFile } = require('./utils/logfile-util')
@@ -31,8 +31,8 @@ async function run() {
     const reportPath = path.resolve('report', 'report.json')
 
     let report = {}
-    if (fs.existsSync(reportPath)) {
-      const rawData = await fs.readFile(reportPath, 'utf8')
+    if (existsSync(reportPath)) {
+      const rawData = await asyncfs.readFile(reportPath, 'utf8')
       report = JSON.parse(rawData)
     }
     const reportExists = Object.keys(report).length === 0
