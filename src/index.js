@@ -40,13 +40,12 @@ async function run() {
     const reportExists = Object.keys(report).length !== 0
     core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`)
 
-    const sysData = platformInstallData.platform.split('-')
-    const lastTest = report.testResults[report.testResults.length - 1]
-    const runName = `${name}-${platformInstallData.platform}-${Date.now()}`
-
     const formatDate = (date) => {
       return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '')
     }
+
+    const sysData = platformInstallData.platform.split('-')
+    const runName = `${name}-${platformInstallData.platform}-${Date.now()}`
 
     const logfileLink = await fetchLogFile(octokit, runName)
     const ciLink = `https://github.com/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}`
@@ -58,14 +57,22 @@ async function run() {
       status = passed ? Status.PASSED : Status.FAILED
     }
 
+    let timeStart = formatDate(Date.now())
+    let timeStop = formatDate(Date.now())
+    if (reportExists) {
+      timeStart = formatDate(report.startTime)
+      const lastTest = report.testResults[report.testResults.length - 1]
+      timeStop = formatDate(lastTest.endTime)
+    }
+
     const testData = {
       name: runName,
       status,
       os: sysData[0],
       arch: sysData[1],
       sourceLink,
-      timeStart: formatDate(report.startTime),
-      timeStop: formatDate(lastTest.endTime),
+      timeStart,
+      timeStop,
       totalPassed: reportExists ? report.numPassedTests : 0,
       totalSkipped: reportExists ? report.numTodoTests : 0,
       totalWarnings: 0,
