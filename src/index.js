@@ -29,13 +29,16 @@ async function run() {
     const octokit = new github.GitHub(GITHUB_TOKEN)
 
     const reportPath = path.resolve('report', 'report.json')
+    core.debug(`Report Path is: ${reportPath}`)
 
     let report = {}
     if (existsSync(reportPath)) {
       const rawData = await asyncfs.readFile(reportPath, 'utf8')
       report = JSON.parse(rawData)
     }
-    const reportExists = Object.keys(report).length === 0
+
+    const reportExists = Object.keys(report).length !== 0
+    core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`)
 
     const sysData = platformInstallData.platform.split('-')
     const lastTest = report.testResults[report.testResults.length - 1]
@@ -50,8 +53,9 @@ async function run() {
     const sourceLink = `https://github.com/${GITHUB_REPOSITORY}`
 
     let status = Status.FAILED
-    if (reportExists && report.numPassedTests === report.numTotalTests) {
-      status = Status.PASSED
+    if (reportExists && report.numTotalTests > 0) {
+      const passed = report.numTotalTests === report.numPassedTests
+      status = passed ? Status.PASSED : Status.FAILED
     }
 
     const testData = {
@@ -62,10 +66,10 @@ async function run() {
       sourceLink,
       timeStart: formatDate(report.startTime),
       timeStop: formatDate(lastTest.endTime),
-      totalPassed: reportExists ? 0 : report.numPassedTests,
-      totalSkipped: reportExists ? 0 : report.numTodoTests,
+      totalPassed: reportExists ? report.numPassedTests : 0,
+      totalSkipped: reportExists ? report.numTodoTests : 0,
       totalWarnings: 0,
-      totalFailed: reportExists ? 0 : report.numFailedTests,
+      totalFailed: reportExists ? report.numFailedTests : 0,
       logfileLink,
       ciLink,
       testAgent: testAgent(),
