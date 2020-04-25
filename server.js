@@ -1,6 +1,6 @@
 const fastify = require('fastify')
-const shortid = require('shortid')
 const semver = require('semver')
+const hash = require('string-hash')
 const { request } = require('@octokit/request')
 
 const fast = fastify({ logger: true })
@@ -15,6 +15,7 @@ const {
   S3_BUCKET_ACCESS_KEY,
 } = process.env
 
+// Map arches to GitHub Actions runner OS names.
 function getHostOS(platform) {
   const ACTIONS_OPTIONS = {
     windows: 'windows-latest',
@@ -31,8 +32,21 @@ function getHostOS(platform) {
   }
 }
 
+// Generate a session token unique to the version, commit, and registrant.
+function generateSessionToken(sha, version, slug) {
+  const versionHash = hash(version)
+  const slugHash = hash(slug)
+  return `${sha}-${versionHash}-${slugHash}`
+}
+
+// Trigger CI runs on a specific registrant and send initial data to Sentinel.
 function handleDispatch(req, repoSlug) {
-  const { platformInstallData, reportCallback, versionQualifier } = req.body
+  const {
+    platformInstallData,
+    reportCallback,
+    versionQualifier,
+    commitHash,
+  } = req.body
 
   const [GITHUB_OWNER, GITHUB_REPO] = repoSlug.split('/')
 
@@ -44,7 +58,13 @@ function handleDispatch(req, repoSlug) {
     minimumVersion = semver.clean(minimumVersion)
   }
 
-  const sessionToken = shortid.generate()
+  // We need to ensure the session token is unique but also the same across different
+  // platforms for a single registrant-specific Sentinel report.
+  const sessionToken = generateSessionToken(
+    commitHash,
+    versionQualifier,
+    repoSlug,
+  )
 
   if (!semver.gte(versionQualifier, minimumVersion)) {
     return { reportsExpected: 0, sessionToken }

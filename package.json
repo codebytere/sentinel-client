@@ -27,7 +27,8 @@
     "fastify": "^2.12.1",
     "node-fetch": "^2.6.0",
     "semver": "^7.1.3",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "string-hash": "^1.1.3"
   },
   "devDependencies": {
     "prettier": "^2.0.2",
