@@ -8,6 +8,7 @@ const path = require('path');
 
 const { fetchLogFile } = require('./utils/logfile-util');
 const { testAgent } = require('./utils/testagent-util');
+const { parseReport } = require('./utils/test-parser');
 
 const { GITHUB_TOKEN, GITHUB_RUN_ID, GITHUB_REPOSITORY } = process.env;
 
@@ -31,18 +32,7 @@ async function run() {
     const reportPath = path.resolve('report', 'report.json');
     core.debug(`Report Path is: ${reportPath}`);
 
-    let report = {};
-    if (existsSync(reportPath)) {
-      const rawData = await asyncfs.readFile(reportPath, 'utf8');
-      report = JSON.parse(rawData);
-    }
-
-    const reportExists = Object.keys(report).length !== 0;
-    core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`);
-
-    const formatDate = (date) => {
-      return new Date(date).toISOString().replace(/T/, ' ').replace(/\..+/, '');
-    };
+    const parsedReport = parseReport(reportPath);
 
     const sysData = platformInstallData.platform.split('-');
     const runName = `${name}-${platformInstallData.platform}-${Date.now()}`;
@@ -51,35 +41,15 @@ async function run() {
     const ciLink = `https://github.com/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}`;
     const sourceLink = `https://github.com/${GITHUB_REPOSITORY}`;
 
-    let status = Status.FAILED;
-    if (reportExists && report.numTotalTests > 0) {
-      const passed = report.numTotalTests === report.numPassedTests;
-      status = passed ? Status.PASSED : Status.FAILED;
-    }
-
-    let timeStart = formatDate(Date.now());
-    let timeStop = formatDate(Date.now());
-    if (reportExists) {
-      timeStart = formatDate(report.startTime);
-      const lastTest = report.testResults[report.testResults.length - 1];
-      timeStop = formatDate(lastTest.endTime);
-    }
-
     const testData = {
       name: runName,
-      status,
       os: sysData[0],
       arch: sysData[1],
       sourceLink,
-      timeStart,
-      timeStop,
-      totalPassed: reportExists ? report.numPassedTests : 0,
-      totalSkipped: reportExists ? report.numTodoTests : 0,
-      totalWarnings: 0,
-      totalFailed: reportExists ? report.numFailedTests : 0,
       logfileLink,
       ciLink,
       testAgent: testAgent(),
+      ...parsedReport
     };
 
     core.info(
