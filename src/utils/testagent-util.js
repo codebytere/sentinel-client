@@ -1,4 +1,4 @@
-const os = require('os')
+const os = require('os');
 
 function testAgent() {
   return {
@@ -14,7 +14,7 @@ function testAgent() {
     totalMem: os.totalmem(),
     type: os.type(),
     endianness: os.endianness(),
-  }
+  };
 }
 
-module.exports = { testAgent }
+module.exports = { testAgent };

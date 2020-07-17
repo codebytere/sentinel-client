@@ -1,61 +1,65 @@
-const fastify = require('fastify')
-const semver = require('semver')
-const hash = require('string-hash')
-const { request } = require('@octokit/request')
-
-const fast = fastify({ logger: true })
+const fastify = require('fastify');
+const semver = require('semver');
+const hash = require('string-hash');
+const { request } = require('@octokit/request');
 
 const {
+  ACTIONS_OPTIONS,
+  CHANNELS,
+  PLATFORMS,
   GITHUB_TOKEN,
   MINIMUM_ELECTRON_VERSION,
-  PORT = 3000,
-  HOST = '0.0.0.0',
+  PORT,
+  HOST,
   S3_BUCKET_NAME,
   S3_BUCKET_ACCESS_ID,
   S3_BUCKET_ACCESS_KEY,
-} = process.env
+} = require('./constants');
 
-// Map arches to GitHub Actions runner OS names.
+const fast = fastify({ logger: true });
+
+// Map architectures to GitHub Actions runner OS names.
 function getHostOS(platform) {
-  const ACTIONS_OPTIONS = {
-    windows: 'windows-latest',
-    macos: 'macos-latest',
-    linux: 'ubuntu-latest',
-  }
-
-  if (['win32-ia32', 'win32-x64'].includes(platform)) {
-    return ACTIONS_OPTIONS.windows
-  } else if (['darwin-x64', 'mas-x64'].includes(platform)) {
-    return ACTIONS_OPTIONS.macos
-  } else if (['linux-ia32', 'linux-x64'].includes(platform)) {
-    return ACTIONS_OPTIONS.linux
+  if (PLATFORMS.WINDOWS.includes(platform)) {
+    return ACTIONS_OPTIONS.WINDOWS;
+  } else if (PLATFORMS.MACOS.includes(platform)) {
+    return ACTIONS_OPTIONS.MACOS;
+  } else if (PLATFORMS.LINUX.includes(platform)) {
+    return ACTIONS_OPTIONS.LINUX;
   }
 }
+
+const isNightly = (v) => v.contains('nightly');
+const isBeta = (v) => v.contains('beta');
 
 // Generate a session token unique to the version, commit, and registrant.
 function generateSessionToken(sha, version, slug) {
-  const versionHash = hash(version)
-  const slugHash = hash(slug)
-  return `${sha}-${versionHash}-${slugHash}`
+  const versionHash = hash(version);
+  const slugHash = hash(slug);
+  return `${sha}-${versionHash}-${slugHash}`;
 }
 
 // Trigger CI runs on a specific registrant and send initial data to Sentinel.
-function handleDispatch(req, repoSlug) {
+function handleDispatch(req, repoSlug, isOSS = false) {
   const {
     platformInstallData,
     reportCallback,
     versionQualifier,
     commitHash,
-  } = req.body
+  } = req.body;
 
-  const [GITHUB_OWNER, GITHUB_REPO] = repoSlug.split('/')
+  let [owner, repo] = repoSlug.split('/');
+  const hostOS = getHostOS(platformInstallData.platform);
+  const dispatchLocation = isOSS
+    ? `codebytere/sentinel-oss`
+    : `${owner}/${repo}`;
 
-  let minimumVersion = MINIMUM_ELECTRON_VERSION
+  let minimumVersion = MINIMUM_ELECTRON_VERSION;
   if (!MINIMUM_ELECTRON_VERSION || !semver.valid(minimumVersion)) {
-    fast.log.error('MINIMUM_ELECTRON_VERSION env var invalid or not set')
-    return
+    fast.log.error('MINIMUM_ELECTRON_VERSION env var invalid or not set');
+    return;
   } else {
-    minimumVersion = semver.clean(minimumVersion)
+    minimumVersion = semver.clean(minimumVersion);
   }
 
   // We need to ensure the session token is unique but also the same across different
@@ -63,52 +67,87 @@ function handleDispatch(req, repoSlug) {
   const sessionToken = generateSessionToken(
     commitHash,
     versionQualifier,
-    repoSlug,
-  )
+    repoSlug
+  );
 
-  if (!semver.gte(versionQualifier, minimumVersion)) {
-    return { reportsExpected: 0, sessionToken }
+  // For OSS apps, check lookup table and bail early if this release
+  // is not one a given OSS app has registered for.
+  if (isOSS) {
+    const apps = require('./oss-apps.json');
+    if (!apps[repo]) {
+      fast.log.error(`Could not find ${repo} in lookup table`);
+      return { reportsExpected: 0, sessionToken };
+    }
+
+    const platforms = apps[repo].platforms;
+    const platform = hostOS.substring(0, hostOS.indexOf('-'));
+    if (!platforms.includes(platform)) {
+      fast.log.info(`${repo} is not registered for ${platform}`);
+      return { reportsExpected: 0, sessionToken };
+    }
+
+    const channels = apps[repo].channels;
+    if (isNightly && !channels.includes(CHANNELS.NIGHTLY)) {
+      fast.log.info(`${repo} is not registered for nightly versions`);
+      return { reportsExpected: 0, sessionToken };
+    } else if (isBeta && !channels.includes(CHANNELS.BETA)) {
+      fast.log.info(`${repo} is not registered for beta versions`);
+      return { reportsExpected: 0, sessionToken };
+    } else if (!channels.includes(CHANNELS.STABLE)) {
+      fast.log.info(`${repo} is not registered for stable versions`);
+      return { reportsExpected: 0, sessionToken };
+    }
   }
 
-  fast.log.info('BUCKET NAME: ', S3_BUCKET_NAME)
-  fast.log.info(`generate-sentinel-report-${GITHUB_REPO}`)
+  if (!semver.gte(versionQualifier, minimumVersion)) {
+    return { reportsExpected: 0, sessionToken };
+  }
 
-  request(`POST /repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`, {
+  fast.log.info('BUCKET NAME: ', S3_BUCKET_NAME);
+  fast.log.info(`generate-sentinel-report-${repo}`);
+
+  request(`POST /repos/${dispatchLocation}/dispatches`, {
     headers: { authorization: `token ${GITHUB_TOKEN}` },
-    event_type: `generate-sentinel-report-${GITHUB_REPO}`,
+    event_type: `generate-sentinel-report-${repo}`,
     client_payload: {
-      hostOS: getHostOS(platformInstallData.platform),
+      hostOS,
       sessionToken,
       reportCallback,
       versionQualifier,
       platformInstallData,
-      name: GITHUB_REPO,
+      name: repo,
       s3Credentials: {
         S3_BUCKET_NAME,
         S3_BUCKET_ACCESS_ID,
         S3_BUCKET_ACCESS_KEY,
       },
     },
-  })
+  });
 
-  return { reportsExpected: 1, sessionToken }
+  return { reportsExpected: 1, sessionToken };
 }
 
 fast.get('/', async (req, res) => {
-  res.send('Client Endpoint Up')
-})
+  res.send('Client Endpoint Up');
+});
 
-fast.post('/vscode', async (req) => handleDispatch(req, 'codebytere/vscode'))
+fast.post('/gitify', async (req) =>
+  handleDispatch(req, 'manosim/gitify', true)
+);
 
-fast.post('/fiddle', async (req) => handleDispatch(req, 'codebytere/fiddle'))
+fast.post('/fiddle', async (req) =>
+  handleDispatch(req, 'electron/fiddle', true)
+);
+
+fast.post('/vscode', async (req) => handleDispatch(req, 'codebytere/vscode'));
 
 const start = async () => {
   try {
-    await fast.listen({ port: PORT, host: HOST })
-    fast.log.info(`server listening on ${fast.server.address().port}`)
+    await fast.listen({ port: PORT, host: HOST });
+    fast.log.info(`server listening on ${fast.server.address().port}`);
   } catch (error) {
-    fast.log.error(error)
+    fast.log.error(error);
   }
-}
+};
 
-start()
+start();

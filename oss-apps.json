@@ -1,0 +1,26 @@
+{
+  "gitify": {
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "channels": [
+      "nightly",
+      "stable",
+      "beta"
+    ]
+  },
+  "fiddle": {
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "channels": [
+      "nightly",
+      "stable",
+      "beta"
+    ]
+  }
+}
