@@ -13,7 +13,7 @@ const {
   HOST,
   S3_BUCKET_NAME,
   S3_BUCKET_ACCESS_ID,
-  S3_BUCKET_ACCESS_KEY,
+  S3_BUCKET_ACCESS_KEY
 } = require('./constants');
 
 const fast = fastify({ logger: true });
@@ -45,7 +45,7 @@ function handleDispatch(req, repoSlug, isOSS = false) {
     platformInstallData,
     reportCallback,
     versionQualifier,
-    commitHash,
+    commitHash
   } = req.body;
 
   let [owner, repo] = repoSlug.split('/');
@@ -119,9 +119,9 @@ function handleDispatch(req, repoSlug, isOSS = false) {
       s3Credentials: {
         S3_BUCKET_NAME,
         S3_BUCKET_ACCESS_ID,
-        S3_BUCKET_ACCESS_KEY,
-      },
-    },
+        S3_BUCKET_ACCESS_KEY
+      }
+    }
   });
 
   return { reportsExpected: 1, sessionToken };

@@ -1,0 +1,1669 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 23,
+  "numPassedTests": 140,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 23,
+  "numTotalTests": 140,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 48,
+    "total": 48,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1595019101253,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should return the initial state",
+          "location": null,
+          "status": "passed",
+          "title": "should return the initial state"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle NOTIFICATIONS.REQUEST",
+          "location": null,
+          "status": "passed",
+          "title": "should handle NOTIFICATIONS.REQUEST"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle NOTIFICATIONS.SUCCESS",
+          "location": null,
+          "status": "passed",
+          "title": "should handle NOTIFICATIONS.SUCCESS"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle NOTIFICATIONS.FAILURE",
+          "location": null,
+          "status": "passed",
+          "title": "should handle NOTIFICATIONS.FAILURE"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_NOTIFICATION.SUCCESS - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_NOTIFICATION.SUCCESS - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_NOTIFICATION.SUCCESS - github.com (without snapshot)",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_NOTIFICATION.SUCCESS - github.com (without snapshot)"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_NOTIFICATION.SUCCESS - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_NOTIFICATION.SUCCESS - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_NOTIFICATION.SUCCESS - enterprise (without snapshot)",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_NOTIFICATION.SUCCESS - enterprise (without snapshot)"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_REPO_NOTIFICATION.SUCCESS - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_REPO_NOTIFICATION.SUCCESS - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_REPO_NOTIFICATION.SUCCESS - github.com (without snapshot)",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_REPO_NOTIFICATION.SUCCESS - github.com (without snapshot)"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle MARK_REPO_NOTIFICATION.SUCCESS - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should handle MARK_REPO_NOTIFICATION.SUCCESS - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/notifications.ts should handle LOGOUT",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGOUT"
+        }
+      ],
+      "endTime": 1595019110142,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/reducers/notifications.test.ts",
+      "startTime": 1595019102695,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - non enterprise - (issue)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - non enterprise - (issue)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - non enterprise - (pull request)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - non enterprise - (pull request)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - non enterprise - (release)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - non enterprise - (release)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - enterprise - (issue)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - enterprise - (issue)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - enterprise - (pull request)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - enterprise - (pull request)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate the GitHub url - enterprise - (release)",
+          "location": null,
+          "status": "passed",
+          "title": "should generate the GitHub url - enterprise - (release)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate a GitHub API url - non enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should generate a GitHub API url - non enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should generate a GitHub API url - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should generate a GitHub API url - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should test isUserEitherLoggedIn - with github",
+          "location": null,
+          "status": "passed",
+          "title": "should test isUserEitherLoggedIn - with github"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should test isUserEitherLoggedIn - with enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should test isUserEitherLoggedIn - with enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should test the authGitHub - success",
+          "location": null,
+          "status": "passed",
+          "title": "should test the authGitHub - success"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should test the authGitHub - with error",
+          "location": null,
+          "status": "passed",
+          "title": "should test the authGitHub - with error"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should test the authGitHub - fail to load the page",
+          "location": null,
+          "status": "passed",
+          "title": "should test the authGitHub - fail to load the page"
+        },
+        {
+          "ancestorTitles": [
+            "utils/helpers.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/helpers.ts should destroy the auth window on close",
+          "location": null,
+          "status": "passed",
+          "title": "should destroy the auth window on close"
+        }
+      ],
+      "endTime": 1595019110223,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/utils/helpers.test.ts",
+      "startTime": 1595019102682,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should login a user (non enterprise) with success",
+          "location": null,
+          "status": "passed",
+          "title": "should login a user (non enterprise) with success"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should login a user (non enterprise) with failure",
+          "location": null,
+          "status": "passed",
+          "title": "should login a user (non enterprise) with failure"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should login a user (enterprise) with success",
+          "location": null,
+          "status": "passed",
+          "title": "should login a user (enterprise) with success"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should login a user (enterprise) with failure",
+          "location": null,
+          "status": "passed",
+          "title": "should login a user (enterprise) with failure"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should logout a user",
+          "location": null,
+          "status": "passed",
+          "title": "should logout a user"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with success - github.com & enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with success - github.com & enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with failure - github.com & enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with failure - github.com & enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with success - enterprise only",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with success - enterprise only"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with failure - enterprise only",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with failure - enterprise only"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with success - github.com only",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with success - github.com only"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should fetch notifications with failure - github.com only",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch notifications with failure - github.com only"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should unsubscribe from a notification thread with success - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should unsubscribe from a notification thread with success - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should unsubscribe from a notification thread with failure - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should unsubscribe from a notification thread with failure - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a notification as read with success - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification as read with success - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a notification as read with failure - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification as read with failure - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a notification as read with success - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification as read with success - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a notification as read with failure - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification as read with failure - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a repository's notifications as read with success - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repository's notifications as read with success - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a repository's notifications as read with failure - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repository's notifications as read with failure - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a repository's notifications as read with success - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repository's notifications as read with success - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should mark a repository's notifications as read with failure - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repository's notifications as read with failure - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "actions/index.js"
+          ],
+          "failureMessages": [],
+          "fullName": "actions/index.js should update a setting for a user",
+          "location": null,
+          "status": "passed",
+          "title": "should update a setting for a user"
+        }
+      ],
+      "endTime": 1595019110354,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/actions/index.test.ts",
+      "startTime": 1595019102728,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js should test the mapStateToProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the mapStateToProps method"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js renders correctly",
+          "location": null,
+          "status": "passed",
+          "title": "renders correctly"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js let us go back",
+          "location": null,
+          "status": "passed",
+          "title": "let us go back"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js should validate the form values",
+          "location": null,
+          "status": "passed",
+          "title": "should validate the form values"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js should receive a logged-in enterprise account",
+          "location": null,
+          "status": "passed",
+          "title": "should receive a logged-in enterprise account"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js should render the form with errors",
+          "location": null,
+          "status": "passed",
+          "title": "should render the form with errors"
+        },
+        {
+          "ancestorTitles": [
+            "routes/enterprise-login.js"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/enterprise-login.js should open the login window and get a code successfully (will-redirect)",
+          "location": null,
+          "status": "passed",
+          "title": "should open the login window and get a code successfully (will-redirect)"
+        }
+      ],
+      "endTime": 1595019116014,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/routes/enterprise-login.test.tsx",
+      "startTime": 1595019110167,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx",
+            "mapStateToProps"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx mapStateToProps should accept a provided token",
+          "location": null,
+          "status": "passed",
+          "title": "should accept a provided token"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx",
+            "mapStateToProps"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx mapStateToProps should count notification lengths",
+          "location": null,
+          "status": "passed",
+          "title": "should count notification lengths"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx",
+            "mapStateToProps"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx mapStateToProps should accept a null token",
+          "location": null,
+          "status": "passed",
+          "title": "should accept a null token"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should render itself & its children (logged in)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children (logged in)"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should render itself & its children (logged out)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children (logged out)"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should clear the interval when unmounting",
+          "location": null,
+          "status": "passed",
+          "title": "should clear the interval when unmounting"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should load notifications after 60000ms",
+          "location": null,
+          "status": "passed",
+          "title": "should load notifications after 60000ms"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should fetch the notifications if another account logs in",
+          "location": null,
+          "status": "passed",
+          "title": "should fetch the notifications if another account logs in"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx should refresh the notifications",
+          "location": null,
+          "status": "passed",
+          "title": "should refresh the notifications"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx go to the settings route",
+          "location": null,
+          "status": "passed",
+          "title": "go to the settings route"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx go to back to home from the settings route",
+          "location": null,
+          "status": "passed",
+          "title": "go to back to home from the settings route"
+        },
+        {
+          "ancestorTitles": [
+            "components/Sidebar.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/Sidebar.tsx open the gitify repo in browser",
+          "location": null,
+          "status": "passed",
+          "title": "open the gitify repo in browser"
+        }
+      ],
+      "endTime": 1595019116131,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/sidebar.test.tsx",
+      "startTime": 1595019110280,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx",
+            "mapStateToProps"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx mapStateToProps should test the method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the method"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx",
+            "mapStateToProps"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx mapStateToProps should recognize when only one account logged in",
+          "location": null,
+          "status": "passed",
+          "title": "should recognize when only one account logged in"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should press the logout",
+          "location": null,
+          "status": "passed",
+          "title": "should press the logout"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should call the componentWillReceiveProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should call the componentWillReceiveProps method"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should go back by pressing the icon",
+          "location": null,
+          "status": "passed",
+          "title": "should go back by pressing the icon"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should toggle the showOnlyParticipating checkbox",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the showOnlyParticipating checkbox"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should toggle the playSound checkbox",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the playSound checkbox"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should toggle the showNotifications checkbox",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the showNotifications checkbox"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should toggle the onClickMarkAsRead checkbox",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the onClickMarkAsRead checkbox"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should toggle the openAtStartup checkbox",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the openAtStartup checkbox"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should go to the enterprise login route",
+          "location": null,
+          "status": "passed",
+          "title": "should go to the enterprise login route"
+        },
+        {
+          "ancestorTitles": [
+            "routes/settings.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/settings.tsx should quit the app",
+          "location": null,
+          "status": "passed",
+          "title": "should quit the app"
+        }
+      ],
+      "endTime": 1595019116387,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/routes/settings.test.tsx",
+      "startTime": 1595019110377,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should raise a notification (settings - on)",
+          "location": null,
+          "status": "passed",
+          "title": "should raise a notification (settings - on)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should not raise a notification (settings - off)",
+          "location": null,
+          "status": "passed",
+          "title": "should not raise a notification (settings - off)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should not raise a notification (because of 0(zero) notifications)",
+          "location": null,
+          "status": "passed",
+          "title": "should not raise a notification (because of 0(zero) notifications)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should raise a single native notification (with different icons)",
+          "location": null,
+          "status": "passed",
+          "title": "should raise a single native notification (with different icons)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should click on a native notification (with 1 notification)",
+          "location": null,
+          "status": "passed",
+          "title": "should click on a native notification (with 1 notification)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should click on a native notification (with more than 1 notification)",
+          "location": null,
+          "status": "passed",
+          "title": "should click on a native notification (with more than 1 notification)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/notifications.ts should play a sound",
+          "location": null,
+          "status": "passed",
+          "title": "should play a sound"
+        }
+      ],
+      "endTime": 1595019116412,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/utils/notifications.test.ts",
+      "startTime": 1595019116036,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "middleware/notifications.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/notifications.js should raise notifications (native & sound, update tray icon, set badge)",
+          "location": null,
+          "status": "passed",
+          "title": "should raise notifications (native & sound, update tray icon, set badge)"
+        },
+        {
+          "ancestorTitles": [
+            "middleware/notifications.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/notifications.js should mark a notification and call the update tray icon helper",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification and call the update tray icon helper"
+        },
+        {
+          "ancestorTitles": [
+            "middleware/notifications.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/notifications.js should mark a repo's notification and call the update tray icon helper",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repo's notification and call the update tray icon helper"
+        },
+        {
+          "ancestorTitles": [
+            "middleware/notifications.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/notifications.js should update tray icon with no notifications",
+          "location": null,
+          "status": "passed",
+          "title": "should update tray icon with no notifications"
+        },
+        {
+          "ancestorTitles": [
+            "middleware/notifications.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/notifications.js should show 0 notifications if no accounts logged in",
+          "location": null,
+          "status": "passed",
+          "title": "should show 0 notifications if no accounts logged in"
+        }
+      ],
+      "endTime": 1595019116519,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/middleware/notifications.test.ts",
+      "startTime": 1595019116142,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should return the initial state",
+          "location": null,
+          "status": "passed",
+          "title": "should return the initial state"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should handle LOGIN.REQUEST",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGIN.REQUEST"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should handle LOGIN.SUCCESS - github.com",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGIN.SUCCESS - github.com"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should handle LOGIN.SUCCESS - enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGIN.SUCCESS - enterprise"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should handle LOGIN.FAILURE",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGIN.FAILURE"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/auth.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/auth.ts should handle LOGOUT",
+          "location": null,
+          "status": "passed",
+          "title": "should handle LOGOUT"
+        }
+      ],
+      "endTime": 1595019116756,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/reducers/auth.test.ts",
+      "startTime": 1595019116527,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "routes/login.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/login.tsx should test the mapStateToProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the mapStateToProps method"
+        },
+        {
+          "ancestorTitles": [
+            "routes/login.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/login.tsx should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        },
+        {
+          "ancestorTitles": [
+            "routes/login.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/login.tsx should redirect to notifications once logged in",
+          "location": null,
+          "status": "passed",
+          "title": "should redirect to notifications once logged in"
+        },
+        {
+          "ancestorTitles": [
+            "routes/login.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/login.tsx should call the authGitHub helper when pressing the login button",
+          "location": null,
+          "status": "passed",
+          "title": "should call the authGitHub helper when pressing the login button"
+        },
+        {
+          "ancestorTitles": [
+            "routes/login.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/login.tsx should navigate to login with github enterprise",
+          "location": null,
+          "status": "passed",
+          "title": "should navigate to login with github enterprise"
+        }
+      ],
+      "endTime": 1595019116969,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/routes/login.test.tsx",
+      "startTime": 1595019116420,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should send mark the icons as active",
+          "location": null,
+          "status": "passed",
+          "title": "should send mark the icons as active"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should send mark the icons as idle",
+          "location": null,
+          "status": "passed",
+          "title": "should send mark the icons as idle"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should reopen the window",
+          "location": null,
+          "status": "passed",
+          "title": "should reopen the window"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should restore a setting",
+          "location": null,
+          "status": "passed",
+          "title": "should restore a setting"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should open an external link",
+          "location": null,
+          "status": "passed",
+          "title": "should open an external link"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should setAutoLaunch (true)",
+          "location": null,
+          "status": "passed",
+          "title": "should setAutoLaunch (true)"
+        },
+        {
+          "ancestorTitles": [
+            "utils/comms.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "utils/comms.ts should setAutoLaunch (false)",
+          "location": null,
+          "status": "passed",
+          "title": "should setAutoLaunch (false)"
+        }
+      ],
+      "endTime": 1595019117012,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/utils/comms.test.ts",
+      "startTime": 1595019116772,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "routes/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/notifications.ts should test the mapStateToProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the mapStateToProps method"
+        },
+        {
+          "ancestorTitles": [
+            "routes/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/notifications.ts should render itself & its children (with notifications)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children (with notifications)"
+        },
+        {
+          "ancestorTitles": [
+            "routes/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/notifications.ts should render itself & its children (all read notifications)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children (all read notifications)"
+        },
+        {
+          "ancestorTitles": [
+            "routes/notifications.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "routes/notifications.ts should render itself & its children (error page - oops)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children (error page - oops)"
+        }
+      ],
+      "endTime": 1595019117270,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/routes/notifications.test.tsx",
+      "startTime": 1595019116988,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/loading.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/loading.js should test the mapStateToProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the mapStateToProps method"
+        },
+        {
+          "ancestorTitles": [
+            "components/loading.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/loading.js should check that NProgress is getting called in getDerivedStateFromProps (loading)",
+          "location": null,
+          "status": "passed",
+          "title": "should check that NProgress is getting called in getDerivedStateFromProps (loading)"
+        },
+        {
+          "ancestorTitles": [
+            "components/loading.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/loading.js should check that NProgress is getting called in getDerivedStateFromProps (not loading)",
+          "location": null,
+          "status": "passed",
+          "title": "should check that NProgress is getting called in getDerivedStateFromProps (not loading)"
+        },
+        {
+          "ancestorTitles": [
+            "components/loading.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/loading.js should remove NProgress on unmount",
+          "location": null,
+          "status": "passed",
+          "title": "should remove NProgress on unmount"
+        }
+      ],
+      "endTime": 1595019117407,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/loading.test.tsx",
+      "startTime": 1595019117028,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "./utils/github-api.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "./utils/github-api.ts should format the notification reason",
+          "location": null,
+          "status": "passed",
+          "title": "should format the notification reason"
+        },
+        {
+          "ancestorTitles": [
+            "./utils/github-api.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "./utils/github-api.ts should get the notification type icon",
+          "location": null,
+          "status": "passed",
+          "title": "should get the notification type icon"
+        }
+      ],
+      "endTime": 1595019117433,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/utils/github-api.test.ts",
+      "startTime": 1595019117281,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should test the mapStateToProps method",
+          "location": null,
+          "status": "passed",
+          "title": "should test the mapStateToProps method"
+        },
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        },
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should open a notification in the browser",
+          "location": null,
+          "status": "passed",
+          "title": "should open a notification in the browser"
+        },
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should open a notification in browser & mark it as read",
+          "location": null,
+          "status": "passed",
+          "title": "should open a notification in browser & mark it as read"
+        },
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should mark a notification as read",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a notification as read"
+        },
+        {
+          "ancestorTitles": [
+            "components/notification.js"
+          ],
+          "failureMessages": [],
+          "fullName": "components/notification.js should unsubscribe from a notification thread",
+          "location": null,
+          "status": "passed",
+          "title": "should unsubscribe from a notification thread"
+        }
+      ],
+      "endTime": 1595019117845,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/notification.test.tsx",
+      "startTime": 1595019116398,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "middleware/settings.js"
+          ],
+          "failureMessages": [],
+          "fullName": "middleware/settings.js should toggle the openAtStartup setting",
+          "location": null,
+          "status": "passed",
+          "title": "should toggle the openAtStartup setting"
+        }
+      ],
+      "endTime": 1595019118120,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/middleware/settings.test.ts",
+      "startTime": 1595019117854,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/ui/logo.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/ui/logo.tsx renders correctly (light)",
+          "location": null,
+          "status": "passed",
+          "title": "renders correctly (light)"
+        },
+        {
+          "ancestorTitles": [
+            "components/ui/logo.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/ui/logo.tsx renders correctly(dark)",
+          "location": null,
+          "status": "passed",
+          "title": "renders correctly(dark)"
+        },
+        {
+          "ancestorTitles": [
+            "components/ui/logo.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/ui/logo.tsx should click on the logo",
+          "location": null,
+          "status": "passed",
+          "title": "should click on the logo"
+        }
+      ],
+      "endTime": 1595019118650,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/ui/logo.test.tsx",
+      "startTime": 1595019118129,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/account-notifications.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/account-notifications.tsx should render itself (github.com with notifications)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself (github.com with notifications)"
+        },
+        {
+          "ancestorTitles": [
+            "components/account-notifications.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/account-notifications.tsx should render itself (github.com without notifications)",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself (github.com without notifications)"
+        }
+      ],
+      "endTime": 1595019118677,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/account-notifications.test.tsx",
+      "startTime": 1595019117440,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "reducers/settings.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/settings.ts should return the initial state",
+          "location": null,
+          "status": "passed",
+          "title": "should return the initial state"
+        },
+        {
+          "ancestorTitles": [
+            "reducers/settings.ts"
+          ],
+          "failureMessages": [],
+          "fullName": "reducers/settings.ts should handle UPDATE_SETTING",
+          "location": null,
+          "status": "passed",
+          "title": "should handle UPDATE_SETTING"
+        }
+      ],
+      "endTime": 1595019118838,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/reducers/settings.test.ts",
+      "startTime": 1595019118662,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/all-read.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/all-read.tsx should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        }
+      ],
+      "endTime": 1595019118920,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/all-read.test.tsx",
+      "startTime": 1595019118686,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/repository.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/repository.tsx should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        },
+        {
+          "ancestorTitles": [
+            "components/repository.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/repository.tsx should open the browser when clicking on the repo name",
+          "location": null,
+          "status": "passed",
+          "title": "should open the browser when clicking on the repo name"
+        },
+        {
+          "ancestorTitles": [
+            "components/repository.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/repository.tsx should mark a repo as read",
+          "location": null,
+          "status": "passed",
+          "title": "should mark a repo as read"
+        }
+      ],
+      "endTime": 1595019119007,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/repository.test.tsx",
+      "startTime": 1595019117428,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "components/oops.tsx"
+          ],
+          "failureMessages": [],
+          "fullName": "components/oops.tsx should render itself & its children",
+          "location": null,
+          "status": "passed",
+          "title": "should render itself & its children"
+        }
+      ],
+      "endTime": 1595019119067,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/components/oops.test.tsx",
+      "startTime": 1595019118845,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "store/configureStore.js"
+          ],
+          "failureMessages": [],
+          "fullName": "store/configureStore.js should load the store",
+          "location": null,
+          "status": "passed",
+          "title": "should load the store"
+        }
+      ],
+      "endTime": 1595019119171,
+      "message": "",
+      "name": "/Users/runner/work/sentinel-oss/sentinel-oss/src/js/store/configureStore.test.ts",
+      "startTime": 1595019118936,
+      "status": "passed",
+      "summary": ""
+    }
+  ],
+  "wasInterrupted": false
+}

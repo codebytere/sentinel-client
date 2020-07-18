@@ -3,7 +3,6 @@ const github = require('@actions/github');
 const fetch = require('node-fetch');
 
 const { inspect } = require('util');
-const { promises: asyncfs, existsSync } = require('fs');
 const path = require('path');
 
 const { fetchLogFile } = require('./utils/logfile-util');
@@ -12,18 +11,13 @@ const { parseReport } = require('./utils/test-parser');
 
 const { GITHUB_TOKEN, GITHUB_RUN_ID, GITHUB_REPOSITORY } = process.env;
 
-const Status = {
-  PASSED: 'Passed',
-  FAILED: 'Failed',
-};
-
 async function run() {
   try {
     const {
       platformInstallData,
       reportCallback,
       sessionToken,
-      name,
+      name
     } = github.context.payload.client_payload;
 
     // Authenticate Octokit.
@@ -32,7 +26,7 @@ async function run() {
     const reportPath = path.resolve('report', 'report.json');
     core.debug(`Report Path is: ${reportPath}`);
 
-    const parsedReport = parseReport(reportPath);
+    const parsedReport = await parseReport(reportPath);
 
     const sysData = platformInstallData.platform.split('-');
     const runName = `${name}-${platformInstallData.platform}-${Date.now()}`;
@@ -59,9 +53,9 @@ async function run() {
       method: 'POST',
       headers: {
         Authorization: sessionToken,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(testData),
+      body: JSON.stringify(testData)
     });
 
     const text = await result.text();
