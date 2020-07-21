@@ -139,7 +139,9 @@ fast.post('/fiddle', async (req) =>
   handleDispatch(req, 'electron/fiddle', true)
 );
 
-fast.post('/vscode', async (req) => handleDispatch(req, 'codebytere/vscode'));
+fast.post('/vscode', async (req) =>
+  handleDispatch(req, 'microsoft/vscode', true)
+);
 
 const start = async () => {
   try {

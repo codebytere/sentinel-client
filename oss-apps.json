@@ -22,5 +22,16 @@
       "stable",
       "beta"
     ]
+  },
+  "vscode": {
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "channels": [
+      "stable",
+      "beta"
+    ]
   }
 }
