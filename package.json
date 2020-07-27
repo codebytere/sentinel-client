@@ -4,7 +4,7 @@
   "description": "Client library for communicating with then Sentinel service.",
   "main": "index.js",
   "scripts": {
-    "lint:yaml": "yamllint ./.github/workflows/lint.yml",
+    "lint:yaml": "yamllint ./.github/workflows/lint.yml ./.github/workflows/test.yml",
     "lint:js": "prettier --check '**/*.js'",
     "lint": "npm run lint:js && npm run lint:yaml",
     "format": "prettier --write '**/*.js'",
