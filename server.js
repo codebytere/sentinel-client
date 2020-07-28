@@ -29,8 +29,8 @@ function getHostOS(platform) {
   }
 }
 
-const isNightly = (v) => v.contains('nightly');
-const isBeta = (v) => v.contains('beta');
+const isNightly = (v) => v.includes('nightly');
+const isBeta = (v) => v.includes('beta');
 
 // Generate a session token unique to the version, commit, and registrant.
 function generateSessionToken(sha, version, slug) {
@@ -40,7 +40,7 @@ function generateSessionToken(sha, version, slug) {
 }
 
 // Trigger CI runs on a specific registrant and send initial data to Sentinel.
-function handleDispatch(req, repoSlug, isOSS = false) {
+async function handleDispatch(req, repoSlug, isOSS = false) {
   const {
     platformInstallData,
     reportCallback,
@@ -87,10 +87,10 @@ function handleDispatch(req, repoSlug, isOSS = false) {
     }
 
     const channels = apps[repo].channels;
-    if (isNightly && !channels.includes(CHANNELS.NIGHTLY)) {
+    if (isNightly(versionQualifier) && !channels.includes(CHANNELS.NIGHTLY)) {
       fast.log.info(`${repo} is not registered for nightly versions`);
       return { reportsExpected: 0, sessionToken };
-    } else if (isBeta && !channels.includes(CHANNELS.BETA)) {
+    } else if (isBeta(versionQualifier) && !channels.includes(CHANNELS.BETA)) {
       fast.log.info(`${repo} is not registered for beta versions`);
       return { reportsExpected: 0, sessionToken };
     } else if (!channels.includes(CHANNELS.STABLE)) {
@@ -106,7 +106,7 @@ function handleDispatch(req, repoSlug, isOSS = false) {
   fast.log.info('BUCKET NAME: ', S3_BUCKET_NAME);
   fast.log.info(`generate-sentinel-report-${repo}`);
 
-  request(`POST /repos/${dispatchLocation}/dispatches`, {
+  const result = await request(`POST /repos/${dispatchLocation}/dispatches`, {
     headers: { authorization: `token ${GITHUB_TOKEN}` },
     event_type: `generate-sentinel-report-${repo}`,
     client_payload: {
@@ -124,6 +124,12 @@ function handleDispatch(req, repoSlug, isOSS = false) {
     }
   });
 
+  if (result.status !== 200) {
+    fast.log.error(`Failed to trigger workflow for ${repo}: `, result.data);
+  } else {
+    fast.log.info(`Successfully triggered workflow for ${repo}`);
+  }
+
   return { reportsExpected: 1, sessionToken };
 }
 
@@ -131,16 +137,19 @@ fast.get('/', async (req, res) => {
   res.send('Client Endpoint Up');
 });
 
-fast.post('/gitify', async (req) =>
-  handleDispatch(req, 'manosim/gitify', true)
+fast.post(
+  '/gitify',
+  async (req) => await handleDispatch(req, 'manosim/gitify', true)
 );
 
-fast.post('/fiddle', async (req) =>
-  handleDispatch(req, 'electron/fiddle', true)
+fast.post(
+  '/fiddle',
+  async (req) => await handleDispatch(req, 'electron/fiddle', true)
 );
 
-fast.post('/vscode', async (req) =>
-  handleDispatch(req, 'microsoft/vscode', true)
+fast.post(
+  '/vscode',
+  async (req) => await handleDispatch(req, 'microsoft/vscode', true)
 );
 
 const start = async () => {
