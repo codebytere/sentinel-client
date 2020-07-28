@@ -1,12 +1,9 @@
 const fastify = require('fastify');
 const semver = require('semver');
-const hash = require('string-hash');
 const { request } = require('@octokit/request');
 
 const {
-  ACTIONS_OPTIONS,
   CHANNELS,
-  PLATFORMS,
   GITHUB_TOKEN,
   MINIMUM_ELECTRON_VERSION,
   PORT,
@@ -15,29 +12,16 @@ const {
   S3_BUCKET_ACCESS_ID,
   S3_BUCKET_ACCESS_KEY
 } = require('./constants');
+const {
+  generateSessionToken,
+  getFriendlyName,
+  getHostOS
+} = require('./src/utils/server-util');
 
 const fast = fastify({ logger: true });
 
-// Map architectures to GitHub Actions runner OS names.
-function getHostOS(platform) {
-  if (PLATFORMS.WINDOWS.includes(platform)) {
-    return ACTIONS_OPTIONS.WINDOWS;
-  } else if (PLATFORMS.MACOS.includes(platform)) {
-    return ACTIONS_OPTIONS.MACOS;
-  } else if (PLATFORMS.LINUX.includes(platform)) {
-    return ACTIONS_OPTIONS.LINUX;
-  }
-}
-
 const isNightly = (v) => v.includes('nightly');
 const isBeta = (v) => v.includes('beta');
-
-// Generate a session token unique to the version, commit, and registrant.
-function generateSessionToken(sha, version, slug) {
-  const versionHash = hash(version);
-  const slugHash = hash(slug);
-  return `${sha}-${versionHash}-${slugHash}`;
-}
 
 // Trigger CI runs on a specific registrant and send initial data to Sentinel.
 async function handleDispatch(req, repoSlug, isOSS = false) {
@@ -79,8 +63,8 @@ async function handleDispatch(req, repoSlug, isOSS = false) {
       return { reportsExpected: 0, sessionToken };
     }
 
-    const platforms = apps[repo].platforms;
-    const platform = hostOS.substring(0, hostOS.indexOf('-'));
+    const { platforms } = apps[repo];
+    const platform = getFriendlyName(hostOS);
     if (!platforms.includes(platform)) {
       fast.log.info(`${repo} is not registered for ${platform}`);
       return { reportsExpected: 0, sessionToken };
