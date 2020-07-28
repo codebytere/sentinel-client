@@ -1,0 +1,710 @@
+[
+  {
+    "stats": {
+      "suites": 8,
+      "tests": 21,
+      "passes": 21,
+      "pending": 0,
+      "failures": 0,
+      "start": "2020-07-28T06:16:11.035Z",
+      "end": "2020-07-28T06:16:11.053Z",
+      "duration": 18
+    },
+    "tests": [
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should return an object containing all current user defaults",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should return an object containing all current user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 6,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns values for unknown user defaults",
+        "fullTitle": "node-mac-userdefaults getUserDefault() returns values for unknown user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on mismatched values for types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on mismatched values for types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a string",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a string",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a boolean",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a double",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a double",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a float",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a float",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a url",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a url",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to an array",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to an array",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a simple object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a simple object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a complex object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a complex object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns a boolean",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() returns a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults addDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      }
+    ],
+    "pending": [],
+    "failures": [],
+    "passes": [
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should return an object containing all current user defaults",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should return an object containing all current user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 6,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns values for unknown user defaults",
+        "fullTitle": "node-mac-userdefaults getUserDefault() returns values for unknown user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on mismatched values for types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on mismatched values for types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a string",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a string",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a boolean",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a double",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a double",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a float",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a float",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a url",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a url",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to an array",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to an array",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a simple object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a simple object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a complex object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a complex object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns a boolean",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() returns a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults addDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      }
+    ]
+  },
+  {
+    "stats": {
+      "suites": 8,
+      "tests": 21,
+      "passes": 21,
+      "pending": 0,
+      "failures": 0,
+      "start": "2020-07-28T06:16:11.035Z",
+      "end": "2020-07-28T06:16:11.053Z",
+      "duration": 18
+    },
+    "tests": [
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should return an object containing all current user defaults",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should return an object containing all current user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 6,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns values for unknown user defaults",
+        "fullTitle": "node-mac-userdefaults getUserDefault() returns values for unknown user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on mismatched values for types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on mismatched values for types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a string",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a string",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a boolean",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a double",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a double",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a float",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a float",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a url",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a url",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to an array",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to an array",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a simple object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a simple object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a complex object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a complex object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns a boolean",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() returns a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults addDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      }
+    ],
+    "pending": [],
+    "failures": [],
+    "passes": [
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should return an object containing all current user defaults",
+        "fullTitle": "node-mac-userdefaults getAllDefaults() should return an object containing all current user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 6,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults getUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns values for unknown user defaults",
+        "fullTitle": "node-mac-userdefaults getUserDefault() returns values for unknown user defaults",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on invalid types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on invalid types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on mismatched values for types",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should throw on mismatched values for types",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a string",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a string",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a boolean",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a double",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a double",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a float",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a float",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a url",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a url",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to an array",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to an array",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a simple object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a simple object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should be able to set a user default to a complex object",
+        "fullTitle": "node-mac-userdefaults setUserDefault() should be able to set a user default to a complex object",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "returns a boolean",
+        "fullTitle": "node-mac-userdefaults isKeyManaged() returns a boolean",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeUserDefault() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults addDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 0,
+        "currentRetry": 0,
+        "err": {}
+      },
+      {
+        "title": "should throw on a bad domain",
+        "fullTitle": "node-mac-userdefaults removeDomain() should throw on a bad domain",
+        "file": "/Users/codebytere/Developer/node-mac-userdefaults/test/module.spec.js",
+        "duration": 1,
+        "currentRetry": 0,
+        "err": {}
+      }
+    ]
+  }
+]

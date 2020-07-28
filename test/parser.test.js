@@ -24,6 +24,27 @@ describe('Test report parsing', () => {
     expect(parsed).to.deep.equal(expected);
   });
 
+  it('can parse a multiple mocha report', async () => {
+    const mochaReportPath = path.resolve(
+      __dirname,
+      'fixtures',
+      'mocha.array.report.json'
+    );
+    const parsed = await parseReport(mochaReportPath);
+
+    const expected = {
+      status: 'Passed',
+      timeStart: '2020-07-28 06:16:11',
+      timeStop: '2020-07-28 06:16:11',
+      totalPassed: 42,
+      totalSkipped: 0,
+      totalWarnings: 0,
+      totalFailed: 0
+    };
+
+    expect(parsed).to.deep.equal(expected);
+  });
+
   it('can parse a jest report', async () => {
     const mochaReportPath = path.resolve(
       __dirname,

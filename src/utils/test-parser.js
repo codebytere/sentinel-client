@@ -21,32 +21,46 @@ async function parseReport(reportPath) {
 
   core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`);
 
+  if (Array.isArray(report)) {
+    return report[0].stats ? parseMochaReport(report) : parseJestReport(report);
+  }
+
   return report.stats ? parseMochaReport(report) : parseJestReport(report);
 }
 
-async function parseMochaReport(report) {
-  const stats = report.stats;
+async function parseMochaReport(data) {
+  const result = {
+    status: Status.PASSED,
+    timeStart: formatDate(Date.now()),
+    timeStop: formatDate(Date.now()),
+    totalPassed: 0,
+    totalSkipped: 0,
+    totalWarnings: 0,
+    totalFailed: 0
+  };
 
-  let status = Status.FAILED;
-  if (reportExists(report) && stats.tests > 0) {
-    const passed = stats.tests === stats.passes;
-    status = passed ? Status.PASSED : Status.FAILED;
+  const reports = Array.isArray(data) ? data : [data];
+
+  for (const report of reports) {
+    if (reportExists(report)) {
+      const stats = report.stats;
+
+      if (stats.tests > 0) {
+        const passed = stats.tests === stats.passes;
+        result.status = passed ? Status.PASSED : Status.FAILED;
+      }
+
+      result.timeStart = formatDate(stats.start);
+      result.timeStop = formatDate(stats.end);
+
+      result.totalPassed += stats.passes;
+      result.totalFailed += stats.failures;
+    }
   }
-
-  const timeStart = reportExists(report) ? stats.start : Date.now();
-  const timeStop = reportExists(report) ? stats.end : Date.now();
 
   core.debug(`Successfully parsed test report file.`);
 
-  return {
-    status,
-    timeStart: formatDate(timeStart),
-    timeStop: formatDate(timeStop),
-    totalPassed: reportExists(report) ? stats.passes : 0,
-    totalSkipped: 0,
-    totalWarnings: 0,
-    totalFailed: reportExists(report) ? stats.failures : 0
-  };
+  return result;
 }
 
 async function parseJestReport(report) {
