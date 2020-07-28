@@ -32,7 +32,7 @@ async function run() {
     const runName = `${name}-${platformInstallData.platform}-${Date.now()}`;
 
     const logfileLink = await fetchLogFile(octokit, runName);
-    const ciLink = `https://github.com/${GITHUB_REPOSITORY}/runs/${GITHUB_RUN_ID}`;
+    const ciLink = `https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
     const sourceLink = `https://github.com/${GITHUB_REPOSITORY}`;
 
     const testData = {
