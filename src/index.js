@@ -23,7 +23,7 @@ async function run() {
     // Authenticate Octokit.
     const octokit = new github.GitHub(GITHUB_TOKEN);
 
-    const reportPath = path.resolve('report', 'report.json');
+    const reportPath = path.resolve(__dirname, 'report', 'report.json');
     core.debug(`Report Path is: ${reportPath}`);
 
     const parsedReport = await parseReport(reportPath);

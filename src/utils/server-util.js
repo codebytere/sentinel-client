@@ -22,7 +22,7 @@ function getFriendlyName(platform) {
     case ACTIONS_OPTIONS.LINUX:
       return 'linux';
     default:
-      throw new Error(`Unrecognized platform ${platform}`)
+      throw new Error(`Unrecognized platform ${platform}`);
   }
 }
 

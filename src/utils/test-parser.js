@@ -19,9 +19,10 @@ async function parseReport(reportPath) {
     report = JSON.parse(rawData);
   }
 
-  core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`);
+  core.debug(`report.json ${reportExists(report) ? 'exists' : "doesn't exist"}`);
 
   if (Array.isArray(report)) {
+    core.debug('Report file contains multiple reports');
     return report[0].stats ? parseMochaReport(report) : parseJestReport(report);
   }
 
@@ -29,6 +30,8 @@ async function parseReport(reportPath) {
 }
 
 async function parseMochaReport(data) {
+  core.debug('Parsing Mocha report');
+
   const result = {
     status: Status.PASSED,
     timeStart: formatDate(Date.now()),
@@ -58,12 +61,14 @@ async function parseMochaReport(data) {
     }
   }
 
-  core.debug(`Successfully parsed test report file.`);
+  core.debug(`Successfully parsed Mocha test report file.`);
 
   return result;
 }
 
 async function parseJestReport(report) {
+  core.debug('Parsing Jest report');
+
   let status = Status.FAILED;
   if (reportExists && report.numTotalTests > 0) {
     const passed = report.numTotalTests === report.numPassedTests;
@@ -78,7 +83,7 @@ async function parseJestReport(report) {
     if (lastTest.endTime) timeStop = formatDate(lastTest.endTime);
   }
 
-  core.debug(`Successfully parsed test report file.`);
+  core.debug(`Successfully parsed Jest test report file.`);
 
   return {
     status,

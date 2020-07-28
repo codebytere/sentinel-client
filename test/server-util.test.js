@@ -1,5 +1,9 @@
 const { expect } = require('chai');
-const { generateSessionToken, getHostOS, getFriendlyName } = require('../src/utils/server-util');
+const {
+  generateSessionToken,
+  getHostOS,
+  getFriendlyName
+} = require('../src/utils/server-util');
 const { ACTIONS_OPTIONS, PLATFORMS } = require('../constants');
 
 describe('Server utilities', () => {
@@ -28,7 +32,7 @@ describe('Server utilities', () => {
       const hostOS = getHostOS(darwinPlat);
       expect(hostOS).to.equal('macos-latest');
     }
-  })
+  });
 
   it('correctly maps hostOS to friendly name', () => {
     const mac = getFriendlyName(ACTIONS_OPTIONS.MACOS);
@@ -39,5 +43,5 @@ describe('Server utilities', () => {
 
     const linux = getFriendlyName(ACTIONS_OPTIONS.LINUX);
     expect(linux).to.equal('linux');
-  })
-})
+  });
+});
