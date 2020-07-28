@@ -21,6 +21,35 @@ async function parseReport(reportPath) {
 
   core.debug(`report.json ${reportExists ? 'exists' : "doesn't exist"}`);
 
+  return report.stats ? parseMochaReport(report) : parseJestReport(report);
+}
+
+async function parseMochaReport(report) {
+  const stats = report.stats;
+
+  let status = Status.FAILED;
+  if (reportExists && report.numTotalTests > 0) {
+    const passed = stats.tests === stats.passed;
+    status = passed ? Status.PASSED : Status.FAILED;
+  }
+
+  const timeStart = reportExists(report) ? report.start : Date.now();
+  const timeStop = reportExists(report) ? report.end : Date.now();
+
+  core.debug(`Successfully parsed test report file.`);
+
+  return {
+    status,
+    timeStart: formatDate(timeStart),
+    timeStop: formatDate(timeStop),
+    totalPassed: reportExists(report) ? report.passed : 0,
+    totalSkipped: 0,
+    totalWarnings: 0,
+    totalFailed: reportExists(report) ? report.failures : 0
+  };
+}
+
+async function parseJestReport(report) {
   let status = Status.FAILED;
   if (reportExists && report.numTotalTests > 0) {
     const passed = report.numTotalTests === report.numPassedTests;
@@ -48,6 +77,4 @@ async function parseReport(reportPath) {
   };
 }
 
-module.exports = {
-  parseReport
-};
+module.exports = { parseReport };
