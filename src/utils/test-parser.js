@@ -28,13 +28,13 @@ async function parseMochaReport(report) {
   const stats = report.stats;
 
   let status = Status.FAILED;
-  if (reportExists && report.numTotalTests > 0) {
-    const passed = stats.tests === stats.passed;
+  if (reportExists(report) && stats.tests > 0) {
+    const passed = stats.tests === stats.passes;
     status = passed ? Status.PASSED : Status.FAILED;
   }
 
-  const timeStart = reportExists(report) ? report.start : Date.now();
-  const timeStop = reportExists(report) ? report.end : Date.now();
+  const timeStart = reportExists(report) ? stats.start : Date.now();
+  const timeStop = reportExists(report) ? stats.end : Date.now();
 
   core.debug(`Successfully parsed test report file.`);
 
@@ -42,10 +42,10 @@ async function parseMochaReport(report) {
     status,
     timeStart: formatDate(timeStart),
     timeStop: formatDate(timeStop),
-    totalPassed: reportExists(report) ? report.passed : 0,
+    totalPassed: reportExists(report) ? stats.passes : 0,
     totalSkipped: 0,
     totalWarnings: 0,
-    totalFailed: reportExists(report) ? report.failures : 0
+    totalFailed: reportExists(report) ? stats.failures : 0
   };
 }
 
