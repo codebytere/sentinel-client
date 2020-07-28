@@ -13,9 +13,9 @@ describe('Test report parsing', () => {
 
     const expected = {
       status: 'Passed',
-      timeStart: '2020-07-17 21:01:19',
-      timeStop: '2020-07-17 21:02:05',
-      totalPassed: 619,
+      timeStart: '2020-07-28 06:16:11',
+      timeStop: '2020-07-28 06:16:11',
+      totalPassed: 21,
       totalSkipped: 0,
       totalWarnings: 0,
       totalFailed: 0
