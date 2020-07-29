@@ -99,7 +99,7 @@ async function handleDispatch(req, repoSlug, isOSS = false) {
       reportCallback,
       versionQualifier,
       platformInstallData,
-      name: repo,
+      repoSlug,
       s3Credentials: {
         S3_BUCKET_NAME,
         S3_BUCKET_ACCESS_ID,

@@ -22,7 +22,7 @@ async function run() {
       platformInstallData,
       reportCallback,
       sessionToken,
-      name
+      repoSlug
     } = github.context.payload.client_payload;
 
     // Authenticate Octokit.
@@ -32,11 +32,11 @@ async function run() {
     const parsedReport = await parseReport(reportPath);
 
     const sysData = platformInstallData.platform.split('-');
-    const runName = `${name}-${platformInstallData.platform}-${Date.now()}`;
+    const runName = `${repoSlug}-${platformInstallData.platform}-${Date.now()}`;
 
     const logfileLink = await fetchLogFile(octokit, runName);
     const ciLink = `https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
-    const sourceLink = `https://github.com/${GITHUB_REPOSITORY}`;
+    const sourceLink = `https://github.com/${repoSlug}`;
 
     const testData = {
       name: runName,
