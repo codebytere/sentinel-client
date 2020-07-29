@@ -65,9 +65,8 @@ async function parseMochaReport(data) {
   for (const report of reports) {
     const stats = report.stats;
 
-    if (stats.tests > 0) {
-      const passed = stats.tests === stats.passes;
-      result.status = passed ? Status.PASSED : Status.FAILED;
+    if (stats.failures > 0) {
+      result.status = Status.FAILED;
     }
 
     result.timeStart = formatDate(stats.start);
