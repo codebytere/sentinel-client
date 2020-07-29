@@ -13,6 +13,8 @@ const Status = {
 const reportExists = (report) => Object.keys(report).length !== 0;
 
 async function parseReport(reportPath) {
+  core.debug(`Parsing Report at ${reportPath}`);
+
   const empty = {
     status: Status.FAILED,
     timeStart: formatDate(Date.now()),
@@ -28,11 +30,12 @@ async function parseReport(reportPath) {
     const rawData = await asyncfs.readFile(reportPath, 'utf8');
     report = JSON.parse(rawData);
   } else {
+    core.debug('report.json does not exist');
     return empty;
   }
 
   if (!reportExists(report)) {
-    core.debug("report.json doesn't exist");
+    core.debug('report.json has no data');
     return empty;
   }
 
@@ -63,7 +66,6 @@ async function parseMochaReport(data) {
     const stats = report.stats;
 
     if (stats.tests > 0) {
-      console.log(stats.passes, stats.tests);
       const passed = stats.tests === stats.passes;
       result.status = passed ? Status.PASSED : Status.FAILED;
     }

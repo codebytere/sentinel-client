@@ -9,7 +9,12 @@ const { fetchLogFile } = require('./utils/logfile-util');
 const { testAgent } = require('./utils/testagent-util');
 const { parseReport } = require('./utils/test-parser');
 
-const { GITHUB_TOKEN, GITHUB_RUN_ID, GITHUB_REPOSITORY } = process.env;
+const {
+  GITHUB_TOKEN,
+  GITHUB_RUN_ID,
+  GITHUB_REPOSITORY,
+  GITHUB_WORKSPACE
+} = process.env;
 
 async function run() {
   try {
@@ -23,9 +28,7 @@ async function run() {
     // Authenticate Octokit.
     const octokit = new github.GitHub(GITHUB_TOKEN);
 
-    const reportPath = path.resolve(__dirname, 'report', 'report.json');
-    core.debug(`Report Path is: ${reportPath}`);
-
+    const reportPath = path.resolve(GITHUB_WORKSPACE, 'report', 'report.json');
     const parsedReport = await parseReport(reportPath);
 
     const sysData = platformInstallData.platform.split('-');
