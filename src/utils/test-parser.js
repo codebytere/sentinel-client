@@ -19,6 +19,7 @@ async function parseReport(reportPath) {
     status: Status.FAILED,
     timeStart: formatDate(Date.now()),
     timeStop: formatDate(Date.now()),
+    totalTests: 0,
     totalPassed: 0,
     totalSkipped: 0,
     totalWarnings: 0,
@@ -54,6 +55,7 @@ async function parseMochaReport(data) {
     status: Status.PASSED,
     timeStart: formatDate(Date.now()),
     timeStop: formatDate(Date.now()),
+    totalTests: 0,
     totalPassed: 0,
     totalSkipped: 0,
     totalWarnings: 0,
@@ -72,6 +74,7 @@ async function parseMochaReport(data) {
     result.timeStart = formatDate(stats.start);
     result.timeStop = formatDate(stats.end);
 
+    result.totalTests += stats.tests;
     result.totalPassed += stats.passes;
     result.totalFailed += stats.failures;
   }
@@ -104,6 +107,7 @@ async function parseJestReport(report) {
     status,
     timeStart,
     timeStop,
+    totalTests: report.numTotalTests,
     totalPassed: report.numPassedTests,
     totalSkipped: report.numTodoTests,
     totalWarnings: 0,
