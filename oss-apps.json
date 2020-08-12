@@ -23,6 +23,18 @@
       "beta"
     ]
   },
+  "kap": {
+    "platforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "channels": [
+      "nightly",
+      "stable",
+      "beta"
+    ]
+  },
   "vscode": {
     "platforms": [
       "windows",

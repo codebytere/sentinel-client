@@ -136,6 +136,11 @@ fast.post(
   async (req) => await handleDispatch(req, 'microsoft/vscode', true)
 );
 
+fast.post(
+  '/kap',
+  async (req) => await handleDispatch(req, 'wulkano/kap', true)
+);
+
 const start = async () => {
   try {
     await fast.listen({ port: PORT, host: HOST });
