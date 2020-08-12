@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { parseReport } = require('../src/utils/test-parser');
+const { parseReport, Status } = require('../src/utils/test-parser');
 const path = require('path');
 
 describe('Test report parsing', () => {
@@ -67,5 +67,22 @@ describe('Test report parsing', () => {
     };
 
     expect(parsed).to.deep.equal(expected);
+  });
+
+  it('can parse a tap report', async () => {
+    const tapReportPath = path.resolve(
+      __dirname,
+      'fixtures',
+      'tap.report.json'
+    );
+
+    const parsed = await parseReport(tapReportPath);
+
+    expect(parsed.totalTests).to.equal(24);
+    expect(parsed.status).to.equal(Status.PASSED);
+    expect(parsed.totalPassed).to.equal(24);
+    expect(parsed.totalFailed).to.equal(0);
+    expect(parsed.totalWarnings).to.equal(0);
+    expect(parsed.totalSkipped).to.equal(0);
   });
 });

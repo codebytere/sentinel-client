@@ -12,6 +12,12 @@ const Status = {
 
 const reportExists = (report) => Object.keys(report).length !== 0;
 
+const isTapReport = (report) =>
+  report.hasOwnProperty('stats') && report.hasOwnProperty('asserts');
+
+const isMochaReport = (report) =>
+  report.hasOwnProperty('stats') && report.hasOwnProperty('tests');
+
 async function parseReport(reportPath) {
   core.debug(`Parsing Report at ${reportPath}`);
 
@@ -42,10 +48,47 @@ async function parseReport(reportPath) {
 
   if (Array.isArray(report)) {
     core.debug('Report file contains multiple reports');
-    return report[0].stats ? parseMochaReport(report) : parseJestReport(report);
+    if (isTapReport(report[0])) {
+      return parseTapReport(report);
+    } else if (isMochaReport(report[0])) {
+      return parseMochaReport(report);
+    } else {
+      return parseJestReport(report);
+    }
   }
 
-  return report.stats ? parseMochaReport(report) : parseJestReport(report);
+  if (isTapReport(report)) {
+    return parseTapReport(report);
+  } else if (isMochaReport(report)) {
+    return parseMochaReport(report);
+  }
+
+  return parseJestReport(report);
+}
+
+async function parseTapReport(data) {
+  core.debug('Parsing Tap report');
+
+  const { stats } = data;
+
+  const result = {
+    status: Status.PASSED,
+    timeStart: formatDate(Date.now()),
+    timeStop: formatDate(Date.now()),
+    totalTests: stats.asserts,
+    totalPassed: stats.passes,
+    totalSkipped: 0,
+    totalWarnings: 0,
+    totalFailed: stats.failures
+  };
+
+  if (stats.failures > 0) {
+    result.status = Status.FAILED;
+  }
+
+  core.debug(`Successfully parsed Tap test report file.`);
+
+  return result;
 }
 
 async function parseMochaReport(data) {
@@ -84,19 +127,19 @@ async function parseMochaReport(data) {
   return result;
 }
 
-async function parseJestReport(report) {
+async function parseJestReport(data) {
   core.debug('Parsing Jest report');
 
   let status = Status.FAILED;
-  if (reportExists && report.numTotalTests > 0) {
-    const passed = report.numTotalTests === report.numPassedTests;
+  if (data.numTotalTests > 0) {
+    const passed = data.numTotalTests === data.numPassedTests;
     status = passed ? Status.PASSED : Status.FAILED;
   }
 
-  let timeStart = formatDate(report.startTime);
+  let timeStart = formatDate(data.startTime);
   let timeStop = formatDate(Date.now());
 
-  const lastTest = report.testResults[report.testResults.length - 1];
+  const lastTest = data.testResults[data.testResults.length - 1];
   if (lastTest.endTime) {
     timeStop = formatDate(lastTest.endTime);
   }
@@ -107,12 +150,12 @@ async function parseJestReport(report) {
     status,
     timeStart,
     timeStop,
-    totalTests: report.numTotalTests,
-    totalPassed: report.numPassedTests,
-    totalSkipped: report.numTodoTests,
+    totalTests: data.numTotalTests,
+    totalPassed: data.numPassedTests,
+    totalSkipped: data.numTodoTests,
     totalWarnings: 0,
-    totalFailed: report.numFailedTests
+    totalFailed: data.numFailedTests
   };
 }
 
-module.exports = { parseReport };
+module.exports = { parseReport, Status };

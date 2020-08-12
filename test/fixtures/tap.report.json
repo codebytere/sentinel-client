@@ -1,0 +1,177 @@
+{
+  "stats": {
+    "asserts": 24,
+    "passes": 24,
+    "failures": 0
+  },
+  "asserts": [
+    {
+      "number": 1,
+      "comment": "recording-history › `getPastRecordings()`",
+      "name": "recording-history › `getPastRecordings()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 2,
+      "comment": "recording-history › `hasActiveRecording()` with no recording",
+      "name": "recording-history › `hasActiveRecording()` with no recording",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 3,
+      "comment": "recording-history › `hasActiveRecording()` with playable recording",
+      "name": "recording-history › `hasActiveRecording()` with playable recording",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 4,
+      "comment": "recording-history › `hasActiveRecording()` with known corrupt recording",
+      "name": "recording-history › `hasActiveRecording()` with known corrupt recording",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 5,
+      "comment": "recording-history › `hasActiveRecording()` with unknown corrupt recording",
+      "name": "recording-history › `hasActiveRecording()` with unknown corrupt recording",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 6,
+      "comment": "recording-history › `setCurrentRecording()`",
+      "name": "recording-history › `setCurrentRecording()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 7,
+      "comment": "recording-history › `updatePluginState()`",
+      "name": "recording-history › `updatePluginState()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 8,
+      "comment": "recording-history › `stopCurrentRecording()`",
+      "name": "recording-history › `stopCurrentRecording()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 9,
+      "comment": "recording-history › `cleanPastRecordings()`",
+      "name": "recording-history › `cleanPastRecordings()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 10,
+      "comment": "recording-history › `addRecording()`",
+      "name": "recording-history › `addRecording()`",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 11,
+      "comment": "convert › mp4: retina with sound",
+      "name": "convert › mp4: retina with sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 12,
+      "comment": "convert › mp4: retina without sound",
+      "name": "convert › mp4: retina without sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 13,
+      "comment": "convert › mp4: non-retina",
+      "name": "convert › mp4: non-retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 14,
+      "comment": "convert › webm: retina with sound",
+      "name": "convert › webm: retina with sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 15,
+      "comment": "convert › webm: retina without sound",
+      "name": "convert › webm: retina without sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 16,
+      "comment": "convert › webm: non-retina",
+      "name": "convert › webm: non-retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 17,
+      "comment": "convert › apng: retina",
+      "name": "convert › apng: retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 18,
+      "comment": "convert › apng: non-retina",
+      "name": "convert › apng: non-retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 19,
+      "comment": "convert › gif: retina",
+      "name": "convert › gif: retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 20,
+      "comment": "convert › gif: non-retina",
+      "name": "convert › gif: non-retina",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 21,
+      "comment": "convert › gif: lossy",
+      "name": "convert › gif: lossy",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 22,
+      "comment": "convert › av1: retina with sound",
+      "name": "convert › av1: retina with sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 23,
+      "comment": "convert › av1: retina without sound",
+      "name": "convert › av1: retina without sound",
+      "ok": true,
+      "extra": {}
+    },
+    {
+      "number": 24,
+      "comment": "convert › av1: non-retina",
+      "name": "convert › av1: non-retina",
+      "ok": true,
+      "extra": {}
+    }
+  ]
+}
